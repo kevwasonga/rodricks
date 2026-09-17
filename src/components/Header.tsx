@@ -65,10 +65,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b",
         scrolled
-          ? "bg-[rgba(10,10,10,0.96)] backdrop-blur-[16px] shadow-[0_1px_0_hsl(var(--primary)/0.18)] py-3"
-          : "py-4 bg-transparent"
+          ? "bg-[rgba(10,10,10,0.96)] backdrop-blur-[16px] shadow-[0_1px_0_hsl(var(--primary)/0.18)] border-primary/25 py-3"
+          : "py-4 bg-[rgba(10,10,10,0.5)] backdrop-blur-[10px] border-primary/10"
       )}
     >
       <nav className="container-custom flex items-center justify-between gap-6" aria-label="Main navigation">

@@ -80,24 +80,24 @@ npm run dev      # http://localhost:5173
 
 ## 🎨 Fonts & Theming
 
-Loaded in `index.html`:
+Paired serif + sans-serif type system. Loaded in `index.html`:
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300..700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 ```
 
 CSS variables in `src/index.css`:
 
 ```css
---font-syne: 'Syne', sans-serif;
---font-space-grotesk: 'Space Grotesk', sans-serif;
---font-space-mono: 'Space Mono', monospace;
+--font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;  /* display/headings */
+--font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* body */
+--font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;         /* numbers/code */
 --primary: 38 72% 50%;   /* amber */
 --accent: 179 52% 33%;    /* teal */
 --background: 225 15% 5%;
 ```
 
-Tailwind maps them via `fontFamily.display|body|mono`.
+Tailwind maps them via `fontFamily.display` (serif) | `body` (sans) | `mono`.
 
 ## 📱 Responsiveness
 
@@ -118,16 +118,34 @@ Tailwind maps them via `fontFamily.display|body|mono`.
 | `static/rodrologo.png` | `public/rodrologo.png` (only needed asset) |
 | `app.py` `/send_message` | Client-side form with success toast (ready to wire to API) |
 
-## 🌐 Deployment
+## 🌐 Deployment (Vercel)
 
-Build output is static:
+The project is Vercel-ready. `vercel.json` pins the build:
 
-```bash
-npm run build
-# dist/ → deploy to Vercel / Netlify / Nginx
+```json
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
 ```
 
-For Vercel, framework preset: **Vite**, build command `npm run build`, output `dist`.
+**Deploy:**
+
+```bash
+# 1. Push to GitHub, then import the repo at https://vercel.new
+#    (Vite framework preset is auto-detected; vercel.json overrides if present)
+
+# 2. Or CLI
+npm i -g vercel
+vercel            # preview deploy
+vercel --prod     # production deploy
+```
+
+**After first deploy,** set the real domain in `index.html` (`canonical`, `og:url`) — replace the `https://rodricks-analytics.example.com/` placeholders — and update the `public/sitemap.xml` + `public/robots.txt` host lines.
+
+**Also deployable to** Netlify (`npx netlify deploy --prod`, build `npm run build`, publish `dist`) or any static host.
 
 ## 📄 License
 

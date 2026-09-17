@@ -207,7 +207,7 @@ export function Hero() {
         </motion.div>
       ))}
 
-      <div className="relative z-10 flex-1 flex items-center pt-20 pb-16">
+      <div className="relative z-10 flex-1 flex items-center pt-28 pb-16">
         <div className="container-custom w-full">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
@@ -379,13 +379,6 @@ export function Hero() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 pointer-events-none">
-        <span className="font-mono text-[10px] tracking-[2px] uppercase text-muted-foreground/60">Scroll to explore</span>
-        <div className="w-6 h-9 rounded-full border border-border/40 flex items-start justify-center p-1">
-          <motion.div className="w-1 h-2 bg-primary rounded-full" animate={{ y: [0, 12, 0] }} transition={{ duration: 1.6, repeat: Infinity }} />
         </div>
       </div>
     </section>

@@ -59,7 +59,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="section relative bg-[hsl(225_15%_7.5%)] border-y border-primary/10"
+      className="section relative bg-[hsl(225_15%_9%)] border-y border-primary/10"
       aria-labelledby="services-heading"
     >
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(212,148,43,0.05)_0%,transparent_70%)]" />

@@ -28,11 +28,12 @@
     --radius: 0.75rem;
     --teal: 179 52% 33%;
     --teal-light: 179 60% 40%;
-    /* Synergy fonts — Inter for display/body, JetBrains Mono for numbers */
+    /* Serif + sans paired type system (Fraunces / Inter / JetBrains Mono) */
+    --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
     --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;
     /* legacy aliases */
-    --font-syne: var(--font-inter);
+    --font-syne: var(--font-serif);
     --font-space-grotesk: var(--font-inter);
     --font-space-mono: var(--font-jetbrains);
   }
@@ -149,11 +150,12 @@
   }
   .section-heading {
     @apply font-display font-bold text-foreground tracking-tight;
-    font-family: var(--font-inter);
+    font-family: var(--font-serif);
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 650;
+    font-optical-sizing: auto;
   }
   .section-sub {
     @apply text-muted-foreground text-base max-w-2xl mx-auto mt-4;

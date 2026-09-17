@@ -90,7 +90,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        display: ["var(--font-inter)", "Inter", "sans-serif"],
+        display: ["var(--font-serif)", "Fraunces", "Georgia", "serif"],
         body: ["var(--font-inter)", "Inter", "sans-serif"],
         mono: ["var(--font-jetbrains)", "JetBrains Mono", "monospace"],
       },

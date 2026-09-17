@@ -74,7 +74,7 @@ export function Footer() {
                 className="h-12 w-12 object-cover rounded-full shrink-0 shadow-[0_0_0_2px_hsl(var(--primary)/0.24),0_0_12px_hsl(var(--primary)/0.18)]"
               />
               <span className="flex flex-col leading-none">
-                <span className="font-body font-bold tracking-[0.03em] text-white text-[0.95rem]">
+                <span className="font-display font-bold tracking-[0.03em] text-white text-[0.95rem]">
                   RODRICKS<span className="text-primary"> ANALYTICS</span>
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-primary mt-1">
