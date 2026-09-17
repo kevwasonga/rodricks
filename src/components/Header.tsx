@@ -112,7 +112,7 @@ export function Header() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:bg-[hsl(40_55%_71%)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_hsl(var(--primary)/0.28)] transition-all"
           >
-            <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat_bubble</span> WhatsApp
+            <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span> WhatsApp
           </a>
         </div>
 
@@ -152,7 +152,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white hover:bg-green-500 transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat_bubble</span> WhatsApp Consultation
+              <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span> WhatsApp Consultation
             </a>
           </div>
         </>
