@@ -11,7 +11,7 @@ export function FabGroup() {
         aria-label="WhatsApp Rodricks Otieno"
       >
         <WhatsAppIcon className="h-6 w-6" />
-        <span className="pointer-events-none absolute right-[58px] top-1/2 -translate-y-1/2 hidden sm:block whitespace-nowrap rounded-md border border-border/40 bg-card px-3 py-1.5 font-mono text-[11px] tracking-wide text-teal-400 opacity-0 group-hover:opacity-100 transition-opacity">
+        <span className="pointer-events-none absolute right-[58px] top-1/2 -translate-y-1/2 hidden sm:block whitespace-nowrap rounded-md border border-border/40 bg-card px-3 py-1.5 font-mono text-[11px] tracking-wide text-primary opacity-0 group-hover:opacity-100 transition-opacity">
           Rodricks O. · 0794 627947
         </span>
       </a>
@@ -24,7 +24,7 @@ export function FabGroup() {
         aria-label="WhatsApp Support"
       >
         <WhatsAppIcon className="h-5 w-5" />
-        <span className="pointer-events-none absolute right-[52px] top-1/2 -translate-y-1/2 hidden sm:block whitespace-nowrap rounded-md border border-border/40 bg-card px-3 py-1.5 font-mono text-[11px] tracking-wide text-teal-400 opacity-0 group-hover:opacity-100 transition-opacity">
+        <span className="pointer-events-none absolute right-[52px] top-1/2 -translate-y-1/2 hidden sm:block whitespace-nowrap rounded-md border border-border/40 bg-card px-3 py-1.5 font-mono text-[11px] tracking-wide text-primary opacity-0 group-hover:opacity-100 transition-opacity">
           Support · 0773 625138
         </span>
       </a>

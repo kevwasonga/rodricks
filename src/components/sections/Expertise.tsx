@@ -96,7 +96,7 @@ export function Expertise() {
               transition={{ duration: 0.5, delay: (i % 4) * 0.07 }}
               className="card-base p-6 sm:p-7 hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 mb-5">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-primary border border-primary flex items-center justify-center text-primary mb-5">
                 <g.icon className="h-5 w-5" />
               </div>
               <h4 className="font-display font-bold mb-4 text-[15px]">{g.title}</h4>
@@ -112,7 +112,7 @@ export function Expertise() {
                         whileInView={{ width: `${s.w}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.2, delay: 0.2 }}
-                        className={`h-full rounded-full ${(s as { alt?: boolean }).alt ? "bg-gradient-to-r from-teal-600 to-teal-400" : "bg-gradient-to-r from-amber-500 to-amber-400"}`}
+                        className={`h-full rounded-full ${(s as { alt?: boolean }).alt ? "bg-gradient-to-r from-primary to-primary" : "bg-gradient-to-r from-primary to-primary"}`}
                       />
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export function Expertise() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card-base p-5 sm:p-6"
             >
-              <div className="font-mono text-xs tracking-widest text-teal-400 mb-3">{w.num}</div>
+              <div className="font-mono text-xs tracking-widest text-primary mb-3">{w.num}</div>
               <h5 className="font-display font-bold text-[15px] mb-2">{w.title}</h5>
               <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
             </motion.div>

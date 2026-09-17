@@ -122,7 +122,7 @@ export function CaseStudies() {
               className="card-base p-5 sm:p-6 flex flex-col gap-4 hover:border-primary/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)] transition-all duration-300"
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-teal-400 px-2.5 py-1 rounded-full border border-teal-500/20 bg-teal-500/5 whitespace-nowrap">{c.tag}</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-primary px-2.5 py-1 rounded-full border border-primary bg-primary whitespace-nowrap">{c.tag}</span>
                 <span className="font-mono text-[10px] text-muted-foreground whitespace-nowrap">{c.tool}</span>
               </div>
 
@@ -143,7 +143,7 @@ export function CaseStudies() {
                         whileInView={{ height: `${b.h}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className={`w-full rounded-t-sm flex items-end justify-center pb-1 ${c.variant === "teal" ? "bg-gradient-to-t from-teal-600/20 to-teal-400/45" : "bg-gradient-to-t from-amber-600/20 to-amber-400/45"}`}
+                        className={`w-full rounded-t-sm flex items-end justify-center pb-1 ${c.variant === "teal" ? "bg-gradient-to-t from-primary/20 to-primary/45" : "bg-gradient-to-t from-primary/20 to-primary/45"}`}
                       />
                       <span className="font-mono text-[10px] text-muted-foreground">{b.label}</span>
                     </div>
@@ -156,7 +156,7 @@ export function CaseStudies() {
               <div className="flex flex-wrap gap-3 pt-3 border-t border-border/30">
                 {c.meta.map((m) => (
                   <span key={m.label} className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-wide text-muted-foreground">
-                    <m.icon className="h-3 w-3 text-amber-500" /> {m.label}
+                    <m.icon className="h-3 w-3 text-primary" /> {m.label}
                   </span>
                 ))}
               </div>
@@ -184,12 +184,12 @@ export function CaseStudies() {
 
 function MapMini() {
   return (
-    <div className="relative w-full h-full bg-amber-500/[0.03] rounded overflow-hidden">
-      <span className="absolute left-[30%] top-[40%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)]" />
-      <span className="absolute left-[55%] top-[25%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)]" />
-      <span className="absolute left-[70%] top-[60%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card" />
-      <span className="absolute left-[20%] top-[65%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card" />
-      <span className="absolute left-[80%] top-[35%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card" />
+    <div className="relative w-full h-full bg-primary/[0.03] rounded overflow-hidden">
+      <span className="absolute left-[30%] top-[40%] w-2 h-2 rounded-full bg-primary border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)]" />
+      <span className="absolute left-[55%] top-[25%] w-2 h-2 rounded-full bg-primary border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)]" />
+      <span className="absolute left-[70%] top-[60%] w-2 h-2 rounded-full bg-primary border-2 border-card" />
+      <span className="absolute left-[20%] top-[65%] w-2 h-2 rounded-full bg-primary border-2 border-card" />
+      <span className="absolute left-[80%] top-[35%] w-2 h-2 rounded-full bg-primary border-2 border-card" />
       <svg viewBox="0 0 200 80" className="absolute inset-0 w-full h-full opacity-30">
         <path d="M20 60 Q50 15 80 45 Q110 25 140 40 Q170 30 190 45" fill="none" stroke="rgb(13 155 155)" strokeWidth="1.5" />
       </svg>
@@ -219,7 +219,7 @@ function DonutMini() {
       <svg viewBox="0 0 100 100" className="w-[68px] h-[68px] -rotate-90">
         <circle cx="50" cy="50" r="35" fill="none" stroke="hsl(var(--border))" strokeWidth="12" />
         <circle cx="50" cy="50" r="35" fill="none" stroke="hsl(var(--primary))" strokeWidth="12" strokeDasharray="198 22" strokeLinecap="round" className="drop-shadow-sm" />
-        <text x="50" y="56" textAnchor="middle" className="fill-teal-400 font-mono text-[14px] font-bold" transform="rotate(90 50 50)">
+        <text x="50" y="56" textAnchor="middle" className="fill-primary font-mono text-[14px] font-bold" transform="rotate(90 50 50)">
           90%
         </text>
       </svg>
