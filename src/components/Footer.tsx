@@ -63,7 +63,7 @@ export function Footer() {
       <div className="relative container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.2fr] gap-10 lg:gap-8 border-b border-primary/15 pb-12 mb-10">
           <div>
-            <a href="#home" className="flex items-center gap-3 mb-5">
+            <a href="#home" className="flex items-center gap-3 mb-5 group" aria-label="Rodricks Analytics — back to top">
               <img
                 src="/logo-512-circle.png"
                 alt="Rodricks Analytics Logo"
@@ -71,7 +71,7 @@ export function Footer() {
                 height="48"
                 loading="lazy"
                 decoding="async"
-                className="h-12 w-12 object-cover rounded-full shrink-0 shadow-[0_0_0_2px_hsl(var(--primary)/0.24),0_0_12px_hsl(var(--primary)/0.18)]"
+                className="h-12 w-12 object-cover rounded-full shrink-0 shadow-[0_0_0_2px_hsl(var(--primary)/0.24),0_0_12px_hsl(var(--primary)/0.18)] transition-transform duration-300 group-hover:scale-125"
               />
               <span className="flex flex-col leading-none">
                 <span className="font-display font-bold tracking-[0.03em] text-white text-[0.95rem]">
