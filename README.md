@@ -1,73 +1,79 @@
-# Rodricks Analytics — Vite + shadcn
+# Rodricks Analytics
 
-Professional statistical analysis, research consultancy, and data-driven insights — rebuilt from the original Flask application as a modern, performant Vite + React + shadcn/ui single-page site. Exact visual parity with the Flask original, with industry-standard tooling, first-class responsiveness, and premium typography.
+Professional statistical analysis, research consultancy, and data-insights studio — a modern, single-page marketing site for [Rodricks Analytics](https://github.com/kevwasonga/rodricks), founded by Rodricks Otieno (BSc/MSc Statistics, Nairobi, Kenya).
 
-Live sections: Hero (animated data network) · About · Services · Case Studies · Technical Expertise · Contact · Floating WhatsApp · Preloader · Scroll-to-top.
+The site introduces the consultancy, showcases services and case studies, demonstrates technical expertise, and funnels inquiries straight into WhatsApp — built with Vite + React + TypeScript + Tailwind + shadcn/ui and a premium amber-and-teal analytics aesthetic.
+
+**Sections:** Hero (animated data-network + coefficient widget) · About · Services · Case Studies · Technical Expertise · Contact · Floating WhatsApp · Preloader · Scroll-to-top.
 
 ## ✨ Features
 
-- **Exact Flask parity** — every section, copy, and interaction from `templates/index.html` + `static/css/style.css` + `static/js/main.js` recreated with React + Tailwind + shadcn.
-- **Premium typography** — `Syne` (display), `Space Grotesk` (body), `Space Mono` (mono) via Google Fonts, fluid `clamp()` sizing.
-- **Fully responsive** — mobile-first, fluid grids (`320px → 1920px+`), no horizontal scroll, 44px+ tap targets, hamburger navigation on `<1024px`.
-- **Polished interactions** — Framer Motion reveals, canvas data-network (nodes + links), animated skill/coefficients bars, count-ups, scan lines, floating badges, smooth anchor scroll with active nav.
-- **Accessibility** — semantic HTML, ARIA labels, keyboard focus rings, `prefers-reduced-motion` friendly, 16px minimum input sizing to prevent iOS zoom.
-- **Industry-standard stack** — Vite 8, React 19, TypeScript 6, Tailwind 3, shadcn/ui (Radix), oxlint, prettier.
+- **Premium type system** — Fraunces (display serif), Inter (body), JetBrains Mono (numbers/code) with fluid `clamp()` sizing.
+- **Amber/teal analytics theme** — CSS-variable palette with gradient hairlines, consistent section rhythm, and a subtle film-grain overlay.
+- **Lively data visuals** — canvas particle network, animated coefficient bars and skill meters, mini charts (bars / map / line / donut) with hover-reveal effects.
+- **Header scroll states** — transparent at top, flips to solid dark + gold hairline on scroll; active-section nav with smooth scrolling.
+- **WhatsApp-native contact** — contact form composes the inquiry and opens `wa.me` with a prefilled message; floating action button + footer dropdown across both numbers.
+- **Functional extras** — instant CSS-fade preloader, scroll-to-top, FAB tooltips, `prefers-reduced-motion` support, semantic HTML and ARIA labels.
 
 ## 🧱 Tech Stack
 
-- **Build** — Vite + `@vitejs/plugin-react` (Oxc)
-- **UI** — Tailwind CSS, `tailwindcss-animate`, `class-variance-authority`, `clsx` + `tailwind-merge`
-- **Components** — shadcn/ui (Button, Card, Input, Label, Select, Textarea, Separator, Tooltip, Avatar, etc.) on Radix
-- **Animation** — `framer-motion`
-- **Icons** — `lucide-react` + custom WhatsApp SVG (no unused Font Awesome)
-- **Forms** — `react-hook-form` + `zod` + `@hookform/resolvers` (ready for validation)
-- **Lint/Format** — `oxlint`, `prettier` + `prettier-plugin-tailwindcss`
+| Concern      | Tooling                                                        |
+| ------------ | -------------------------------------------------------------- |
+| Build        | Vite 8 + `@vitejs/plugin-react` (Oxc)                          |
+| Language     | TypeScript                                                      |
+| UI           | React 19 + Tailwind CSS + `tailwindcss-animate`                 |
+| Components   | shadcn/ui (Button, Card, Input, Label, Select, Textarea) on Radix |
+| Animation    | `framer-motion` + `<canvas>` data network                       |
+| Icons        | `lucide-react` + Material Symbols (`chat`, `call`, `mail`, …)  |
+| Forms        | `react-hook-form` + `zod` + `@hookform/resolvers`               |
+| Lint         | oxlint                                                          |
 
 ## 📁 Project Structure
 
 ```
 .
-├── index.html                 # meta, fonts, title (Syne/Space Grotesk/Space Mono)
+├── index.html                 # meta, SEO, canonical/OG placeholders, font links
 ├── public/
-│   ├── images/                # all site images (Hero/Services backgrounds + logo variants)
-│   │   ├── brand-logo.png           # 72px mark (favicon / OG)
+│   ├── images/                # professionally named image assets
+│   │   ├── brand-logo.png            # 72px mark (favicon / OG)
+│   │   ├── brand-logo-256.png
 │   │   ├── brand-logo-512.png
-│   │   ├── brand-logo-circle-512.png
-│   │   ├── hero-bg.webp
-│   │   └── services-bg.webp
-│   └── favicon.svg
+│   │   ├── brand-logo-circle-512.png # circular brand mark used site-wide
+│   │   ├── brand-logo-source.jpeg    # original logo source image
+│   │   ├── hero-bg.webp / .png       # hero section background
+│   │   └── services-bg.webp / .png   # services section background
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
 │   ├── main.tsx
-│   ├── App.tsx                # composes all sections
-│   ├── index.css              # Tailwind base + CSS variables (ember & teal palette)
-│   ├── lib/utils.ts           # cn() helper
+│   ├── App.tsx                 # composes all sections + grain overlay
+│   ├── index.css               # Tailwind + CSS variables (amber/teal palette)
+│   ├── lib/utils.ts            # cn() helper
 │   └── components/
-│       ├── Header.tsx         # sticky nav, active link, hamburger, blur on scroll
-│       ├── Footer.tsx
-│       ├── Preloader.tsx      # 2.4s fallback, logo pulse + scan
-│       ├── FabGroup.tsx       # floating WhatsApp (2 numbers) + tooltip
+│       ├── Header.tsx          # sticky nav, active link, scroll states, drawer
+│       ├── Footer.tsx          # link grid, WhatsApp dropdown, contact
+│       ├── Preloader.tsx       # instant CSS-fade preloader
+│       ├── FabGroup.tsx        # floating WhatsApp action group
 │       ├── ScrollTop.tsx
 │       ├── sections/
-│       │   ├── Hero.tsx       # canvas network, floating stats labels, coefficient widget
-│       │   ├── About.tsx      # logo card + pillars
-│       │   ├── Services.tsx   # 6 cards, featured badge
-│       │   ├── CaseStudies.tsx# 6 cards (bars / map / line / donut)
-│       │   ├── Expertise.tsx  # 4 skill groups + 4 why-us cards
-│       │   └── Contact.tsx    # info + shadcn form (Select, Input, Textarea)
-│       └── ui/                # shadcn primitives (button, card, input, select, …)
-├── tailwind.config.js         # amber/teal/dark palette, font vars, animations
-├── vite.config.ts             # @ → src alias
-└── tsconfig.app.json
+│       │   ├── Hero.tsx        # canvas network, DATA wordmark, coefficient widget
+│       │   ├── About.tsx       # logo card, pillars, tool badges
+│       │   ├── Services.tsx    # 6 cards, featured glow badge
+│       │   ├── CaseStudies.tsx # 6 charts (bars / map / line / donut)
+│       │   ├── Expertise.tsx   # 4 skill groups + 4 why-us cards
+│       │   └── Contact.tsx     # info + WhatsApp-composing form
+│       └── ui/                 # shadcn primitives
+├── tailwind.config.js          # palette, fonts, keyframes
+├── vercel.json                 # Vercel build/output/rewrite config
+└── vite.config.ts              # @ → src alias
 ```
-
-No Flask artifacts were migrated — `venv/`, `__pycache__/`, `*.pyc`, `flask.log`, `rodricks_analytics.zip`, and server-only files are ignored (see `.gitignore`).
 
 ## 🚀 Getting Started
 
-**Prerequisites:** Node 18+ (20 recommended), npm 9+.
+**Prerequisites:** Node 20+, npm 9+.
 
 ```bash
-git clone <repo>
+git clone https://github.com/kevwasonga/rodricks.git
 cd rodricks-analytics-vite
 npm install
 npm run dev      # http://localhost:5173
@@ -75,56 +81,31 @@ npm run dev      # http://localhost:5173
 
 ## 📜 Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start Vite dev server with HMR |
-| `npm run build` | Type-check (`tsc -b`) + production build to `dist/` |
-| `npm run preview` | Serve `dist/` locally |
-| `npm run lint` | Run oxlint |
+| Command            | Description                                 |
+| ------------------ | ------------------------------------------- |
+| `npm run dev`      | Vite dev server with HMR                    |
+| `npm run build`    | Type-check (`tsc -b`) + production build    |
+| `npm run preview`  | Serve `dist/` locally                       |
+| `npm run lint`     | Run oxlint                                  |
 
-## 🎨 Fonts & Theming
+## 🎨 Theming
 
-Paired serif + sans-serif type system. Loaded in `index.html`:
-
-```html
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300..700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
-```
-
-CSS variables in `src/index.css`:
+Palette and type tokens live in `src/index.css` (`@layer base`) and are mapped into Tailwind in `tailwind.config.js`:
 
 ```css
---font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;  /* display/headings */
---font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* body */
---font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;         /* numbers/code */
---primary: 38 72% 50%;   /* amber */
---accent: 179 52% 33%;    /* teal */
---background: 225 15% 5%;
+--primary: 38 72% 50%;     /* amber */
+--accent: 179 52% 33%;      /* teal */
+--background: 225 15% 5%;   /* deep navy-black */
+--font-serif: 'Fraunces', Georgia, serif;      /* display */
+--font-inter: 'Inter', sans-serif;             /* body */
+--font-jetbrains: 'JetBrains Mono', monospace; /* numbers/code */
 ```
 
-Tailwind maps them via `fontFamily.display` (serif) | `body` (sans) | `mono`.
-
-## 📱 Responsiveness
-
-- **Mobile-first** base at `320px`; breakpoints `640/768/1024/1280`.
-- Grids collapse: `grid-cols-1` → `sm:grid-cols-2` → `lg:grid-cols-3/4`.
-- Hero switches from `lg:grid-cols-2` to stacked, center-aligned on mobile; floating labels hidden below `lg`.
-- Navbar: full links on `lg`, hamburger + slide-down panel below.
-- Inputs/selects: `h-11`, `text-sm`, `width:100%`.
-- Verified no `overflow-x`, all images `max-w-full`.
-
-## 🔄 Flask → Vite Mapping
-
-| Flask | Vite |
-|---|---|
-| `templates/base.html` + `templates/index.html` | `src/App.tsx` + `src/components/*` |
-| `static/css/style.css` | `src/index.css` + `tailwind.config.js` |
-| `static/js/main.js` (canvas, reveal, counters, smooth scroll) | `framer-motion` + hooks in `Hero.tsx`, `Header.tsx`, etc. |
-| `static/rodrologo.png` | `public/images/brand-logo.png` (only needed asset) |
-| `app.py` `/send_message` | Client-side form with success toast (ready to wire to API) |
+Fonts are loaded once in `index.html`. Card geometry uses `--radius-card: 1.25rem` for a relaxed, editorial feel while form controls stay at `--radius: 0.75rem`.
 
 ## 🌐 Deployment (Vercel)
 
-The project is Vercel-ready. `vercel.json` pins the build:
+The repo is Vercel-ready; `vercel.json` pins the framework and SPA rewrite:
 
 ```json
 {
@@ -135,21 +116,13 @@ The project is Vercel-ready. `vercel.json` pins the build:
 }
 ```
 
-**Deploy:**
-
 ```bash
-# 1. Push to GitHub, then import the repo at https://vercel.new
-#    (Vite framework preset is auto-detected; vercel.json overrides if present)
-
-# 2. Or CLI
 npm i -g vercel
-vercel            # preview deploy
-vercel --prod     # production deploy
+vercel            # preview
+vercel --prod     # production
 ```
 
-**After first deploy,** set the real domain in `index.html` (`canonical`, `og:url`) — replace the `https://rodricks-analytics.example.com/` placeholders — and update the `public/sitemap.xml` + `public/robots.txt` host lines.
-
-**Also deployable to** Netlify (`npx netlify deploy --prod`, build `npm run build`, publish `dist`) or any static host.
+**After first deploy**, replace the `https://rodricks-analytics.example.com/` placeholders in `index.html` (`canonical`, `og:url`) and update host lines in `public/sitemap.xml` + `public/robots.txt` with the real domain. Netlify or any static host works equally well (build `npm run build`, publish `dist`).
 
 ## 📄 License
 
@@ -157,4 +130,4 @@ Proprietary — Rodricks Analytics.
 
 ## 🙏 Credits
 
-Original design and copy by Rodricks Otieno (Nairobi, Kenya). Vite re-implementation keeps exact messaging, palette, and data visuals while upgrading to a maintainable, type-safe React codebase.
+Design and copy by Rodricks Otieno (Nairobi, Kenya). Built on the Vite + React + shadcn/ui stack with a type-safe TypeScript codebase.
