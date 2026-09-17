@@ -2,74 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Synergy Hub inspired tokens — mapped to shadcn */
+/* Original Rodricks palette — retained, with Synergy fonts/layout */
 @layer base {
   :root {
-    /* Synergy palette */
-    --syn-dark: 0 0% 4%;
-    --syn-dark-2: 0 0% 7%;
-    --syn-dark-3: 0 0% 10%;
-    --syn-dark-4: 0 0% 13%;
-    --syn-gold: 38 45% 61%;
-    --syn-gold-light: 40 55% 71%;
-    --syn-gold-dark: 38 45% 45%;
-    --syn-gold-subtle: 38 45% 61% / 0.12;
-    --syn-gold-border: 38 45% 61% / 0.18;
-    --syn-text: 38 20% 93%;
-    --syn-text-mid: 38 12% 68%;
-    --syn-text-muted: 34 10% 57%;
-    --syn-green: 142 72% 48%;
-    /* shadcn mapping */
-    --background: 0 0% 4%;
-    --foreground: 38 20% 93%;
-    --card: 0 0% 7%;
-    --card-foreground: 38 20% 93%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 38 20% 93%;
-    --primary: 38 45% 61%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 38 20% 93%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 38 12% 68%;
-    --accent: 38 45% 61%;
-    --accent-foreground: 0 0% 4%;
+    /* Original Rodricks palette */
+    --background: 225 15% 5%;
+    --foreground: 240 10% 92%;
+    --card: 225 15% 7%;
+    --card-foreground: 240 10% 92%;
+    --popover: 225 15% 7%;
+    --popover-foreground: 240 10% 92%;
+    --primary: 38 72% 50%;
+    --primary-foreground: 225 15% 5%;
+    --secondary: 225 10% 12%;
+    --secondary-foreground: 240 10% 92%;
+    --muted: 225 10% 10%;
+    --muted-foreground: 240 6% 68%;
+    --accent: 179 52% 33%;
+    --accent-foreground: 240 10% 92%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 38 20% 93%;
-    --border: 38 45% 61% / 0.18;
-    --input: 38 45% 61% / 0.12;
-    --ring: 38 45% 61%;
+    --destructive-foreground: 240 10% 92%;
+    --border: 38 72% 50% / 0.15;
+    --input: 38 72% 50% / 0.15;
+    --ring: 38 72% 50%;
     --radius: 0.75rem;
-    --teal: 38 45% 61%;
-    --teal-light: 40 55% 71%;
+    --teal: 179 52% 33%;
+    --teal-light: 179 60% 40%;
+    /* Synergy fonts — Inter for display/body, JetBrains Mono for numbers */
     --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;
-    /* legacy aliases for existing components */
+    /* legacy aliases */
     --font-syne: var(--font-inter);
     --font-space-grotesk: var(--font-inter);
     --font-space-mono: var(--font-jetbrains);
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 38 20% 93%;
-    --card: 0 0% 7%;
-    --card-foreground: 38 20% 93%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 38 20% 93%;
-    --primary: 38 45% 61%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 38 20% 93%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 38 12% 68%;
-    --accent: 38 45% 61%;
-    --accent-foreground: 0 0% 4%;
+    --background: 225 15% 5%;
+    --foreground: 240 10% 92%;
+    --card: 225 15% 7%;
+    --card-foreground: 240 10% 92%;
+    --popover: 225 15% 7%;
+    --popover-foreground: 240 10% 92%;
+    --primary: 38 72% 50%;
+    --primary-foreground: 225 15% 5%;
+    --secondary: 225 10% 12%;
+    --secondary-foreground: 240 10% 92%;
+    --muted: 225 10% 10%;
+    --muted-foreground: 240 6% 68%;
+    --accent: 179 52% 33%;
+    --accent-foreground: 240 10% 92%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 38 20% 93%;
-    --border: 38 45% 61% / 0.18;
-    --input: 38 45% 61% / 0.12;
-    --ring: 38 45% 61%;
+    --destructive-foreground: 240 10% 92%;
+    --border: 38 72% 50% / 0.15;
+    --input: 38 72% 50% / 0.15;
+    --ring: 38 72% 50%;
   }
 }
 
@@ -85,6 +72,15 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  /* Sharpened imagery — synergy professional outlay */
+  .img-sharpen {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: contrast(1.02) saturate(1.05);
   }
   /* Material Symbols — synergy style */
   .material-symbols-outlined {
