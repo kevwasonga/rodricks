@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 15% 5%;
+    --foreground: 240 10% 92%;
+    --card: 225 15% 7%;
+    --card-foreground: 240 10% 92%;
+    --popover: 225 15% 7%;
+    --popover-foreground: 240 10% 92%;
+    --primary: 38 72% 50%;
+    --primary-foreground: 225 15% 5%;
+    --secondary: 225 10% 12%;
+    --secondary-foreground: 240 10% 92%;
+    --muted: 225 10% 10%;
+    --muted-foreground: 240 5% 63%;
+    --accent: 179 52% 33%;
+    --accent-foreground: 240 10% 92%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 240 10% 92%;
+    --border: 38 72% 50% / 0.15;
+    --input: 38 72% 50% / 0.15;
+    --ring: 38 72% 50%;
+    --radius: 0.5rem;
+    --teal: 179 52% 33%;
+    --teal-light: 179 60% 40%;
+    --font-syne: 'Syne', sans-serif;
+    --font-space-grotesk: 'Space Grotesk', sans-serif;
+    --font-space-mono: 'Space Mono', monospace;
+  }
+
+  .dark {
+    --background: 225 15% 5%;
+    --foreground: 240 10% 92%;
+    --card: 225 15% 7%;
+    --card-foreground: 240 10% 92%;
+    --popover: 225 15% 7%;
+    --popover-foreground: 240 10% 92%;
+    --primary: 38 72% 50%;
+    --primary-foreground: 225 15% 5%;
+    --secondary: 225 10% 12%;
+    --secondary-foreground: 240 10% 92%;
+    --muted: 225 10% 10%;
+    --muted-foreground: 240 5% 63%;
+    --accent: 179 52% 33%;
+    --accent-foreground: 240 10% 92%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 240 10% 92%;
+    --border: 38 72% 50% / 0.15;
+    --input: 38 72% 50% / 0.15;
+    --ring: 38 72% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-10;
+  }
+  .section {
+    @apply py-20 sm:py-28 lg:py-32 relative;
+  }
+  .section-header {
+    @apply text-center max-w-3xl mx-auto mb-16;
+  }
+  .section-tag {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50
+           font-mono text-xs uppercase tracking-widest text-teal-400 bg-teal-500/5
+           mb-6;
+  }
+  .section-heading {
+    @apply font-display font-extrabold text-foreground tracking-tight;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+  }
+  .section-sub {
+    @apply text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mt-6;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-amber-400 via-amber-500 to-teal-400 bg-clip-text text-transparent;
+  }
+  .sh-rule {
+    @apply w-12 h-0.5 bg-gradient-to-r from-amber-500 to-teal-400 rounded mx-auto mb-6;
+  }
+  .card-base {
+    @apply bg-card border border-border/50 rounded-xl transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:border-primary/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-in {
+    animation: animate-in 0.7s ease-out forwards;
+  }
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
