@@ -109,7 +109,13 @@ export function CaseStudies() {
             Case <span className="gradient-text">Studies</span>
           </h2>
           <div className="sh-rule" />
-          <p className="section-sub">Analytical projects demonstrating rigorous research, strategic insights, and measurable impact.</p>
+          <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[2px] text-center flex flex-wrap items-center justify-center gap-x-2 text-muted-foreground mx-auto max-w-2xl">
+            <span>Rigorous Research</span>
+            <span className="text-primary" aria-hidden="true">·</span>
+            <span>Strategic Insights</span>
+            <span className="text-primary" aria-hidden="true">·</span>
+            <span>Measurable Impact</span>
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -120,7 +126,7 @@ export function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-              className="card-base p-5 sm:p-6 flex flex-col gap-4 hover:border-primary/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)] transition-all duration-300"
+              className="card-base p-5 sm:p-6 flex flex-col gap-4 group hover:border-primary/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)] transition-all duration-300"
             >
               <div className="flex items-center justify-between gap-2">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-teal-400 px-2.5 py-1 rounded-full border border-teal-500/20 bg-teal-500/5 whitespace-nowrap">{c.tag}</span>
@@ -128,7 +134,10 @@ export function CaseStudies() {
               </div>
 
               {/* Chart */}
-              <div className="h-[84px] flex items-end gap-1.5 sm:gap-2 border-b border-border/40 pb-2 shrink-0">
+              <div className="h-[84px] relative overflow-hidden flex items-end gap-1.5 sm:gap-2 border-b border-border/40 pb-2 shrink-0">
+                <div className="pointer-events-none absolute inset-0 rounded-lg" aria-hidden="true">
+                  <span className="absolute inset-y-0 w-1/3 skew-x-[-18deg] bg-gradient-to-r from-transparent via-white/[0.14] to-transparent -translate-x-full transition-transform duration-700 ease-out group-hover:translate-x-[400%]" />
+                </div>
                 {c.isMap && <MapMini />}
                 {c.isLine && <LineMini />}
                 {c.isDonut && <DonutMini />}
@@ -144,9 +153,9 @@ export function CaseStudies() {
                         whileInView={{ height: `${b.h}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className={`w-full rounded-t-sm flex items-end justify-center pb-1 ${c.variant === "teal" ? "bg-gradient-to-t from-teal-600/20 to-teal-400/45" : "bg-gradient-to-t from-amber-600/20 to-amber-400/45"}`}
+                        className={`w-full rounded-t-sm flex items-end justify-center pb-1 transition-all duration-300 group-hover:brightness-125 group-hover:-translate-y-0.5 ${c.variant === "teal" ? "bg-gradient-to-t from-teal-600/20 to-teal-400/45" : "bg-gradient-to-t from-amber-600/20 to-amber-400/45"}`}
                       />
-                      <span className="font-mono text-[10px] text-muted-foreground">{b.label}</span>
+                      <span className="font-mono text-[10px] text-muted-foreground transition-colors group-hover:text-primary">{b.label}</span>
                     </div>
                   ))}
               </div>
@@ -186,13 +195,13 @@ export function CaseStudies() {
 function MapMini() {
   return (
     <div className="relative w-full h-full bg-amber-500/[0.03] rounded overflow-hidden">
-      <span className="absolute left-[30%] top-[40%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)]" />
-      <span className="absolute left-[55%] top-[25%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)]" />
-      <span className="absolute left-[70%] top-[60%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card" />
-      <span className="absolute left-[20%] top-[65%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card" />
-      <span className="absolute left-[80%] top-[35%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card" />
-      <svg viewBox="0 0 200 80" className="absolute inset-0 w-full h-full opacity-30">
-        <path d="M20 60 Q50 15 80 45 Q110 25 140 40 Q170 30 190 45" fill="none" stroke="rgb(13 155 155)" strokeWidth="1.5" />
+      <span className="absolute left-[30%] top-[40%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)] transition-transform duration-300 group-hover:scale-150" />
+      <span className="absolute left-[55%] top-[25%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card shadow-[0_0_8px_rgba(13,155,155,0.6)] transition-transform duration-300 delay-75 group-hover:scale-150" />
+      <span className="absolute left-[70%] top-[60%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card transition-transform duration-300 delay-150 group-hover:scale-150" />
+      <span className="absolute left-[20%] top-[65%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card transition-transform duration-300 delay-200 group-hover:scale-150" />
+      <span className="absolute left-[80%] top-[35%] w-2 h-2 rounded-full bg-teal-400 border-2 border-card transition-transform duration-300 delay-300 group-hover:scale-150" />
+      <svg viewBox="0 0 200 80" className="absolute inset-0 w-full h-full opacity-30 transition-opacity duration-300 group-hover:opacity-60">
+        <path d="M20 60 Q50 15 80 45 Q110 25 140 40 Q170 30 190 45" fill="none" stroke="rgb(13 155 155)" strokeWidth="1.5" strokeDasharray="6 4" strokeLinecap="round" />
       </svg>
     </div>
   )
@@ -200,9 +209,10 @@ function MapMini() {
 
 function LineMini() {
   return (
-    <svg viewBox="0 0 200 80" className="w-full h-full">
-      <polyline points="10,65 40,55 70,48 100,38 130,30 160,22 190,15" fill="none" stroke="rgb(13 155 155)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 200 80" className="w-full h-full transition-transform duration-300 group-hover:scale-[1.03]">
+      <polyline points="10,65 40,55 70,48 100,38 130,30 160,22 190,15" fill="none" stroke="rgb(13 155 155)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="7 5" />
       <circle cx="190" cy="15" r="4" fill="rgb(13 155 155)" />
+      <circle cx="190" cy="15" r="8" fill="none" stroke="rgb(13 155 155)" strokeOpacity="0.4" className="transition-transform duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-125" />
       <defs>
         <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="rgb(13 155 155)" stopOpacity="0.15" />
@@ -217,14 +227,14 @@ function LineMini() {
 function DonutMini() {
   return (
     <div className="w-full h-full flex items-center justify-center gap-3">
-      <svg viewBox="0 0 100 100" className="w-[68px] h-[68px] -rotate-90">
+      <svg viewBox="0 0 100 100" className="w-[68px] h-[68px] -rotate-90 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-[70deg]">
         <circle cx="50" cy="50" r="35" fill="none" stroke="hsl(var(--border))" strokeWidth="12" />
-        <circle cx="50" cy="50" r="35" fill="none" stroke="hsl(var(--primary))" strokeWidth="12" strokeDasharray="198 22" strokeLinecap="round" className="drop-shadow-sm" />
+        <circle cx="50" cy="50" r="35" fill="none" stroke="hsl(var(--primary))" strokeWidth="12" strokeDasharray="198 22" strokeLinecap="round" className="drop-shadow-sm transition-shadow duration-300 group-hover:drop-shadow-[0_0_6px_hsl(var(--primary)/0.5)]" />
         <text x="50" y="56" textAnchor="middle" className="fill-teal-400 font-mono text-[14px] font-bold" transform="rotate(90 50 50)">
           90%
         </text>
       </svg>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Pass Rate</span>
+      <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-primary">Pass Rate</span>
     </div>
   )
 }

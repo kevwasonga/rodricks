@@ -45,7 +45,7 @@ export function About() {
                 <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Nairobi, Kenya</span>
                 <div className="flex flex-wrap justify-center gap-2 mt-6">
                   {tools.map((tool) => (
-                    <span key={tool} className="font-mono text-[11px] tracking-wide px-2.5 py-1 border border-border/40 rounded text-primary bg-primary">
+                    <span key={tool} className="font-mono text-[11px] tracking-wide px-2.5 py-1 border border-primary/25 rounded bg-primary/10 text-primary">
                       {tool}
                     </span>
                   ))}
