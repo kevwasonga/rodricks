@@ -13,9 +13,10 @@ import { Contact } from "@/components/sections/Contact"
 export default function App() {
   return (
     <>
+      <a href="#main" className="sr-only">Skip to content</a>
       <Preloader />
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <Services />

@@ -43,6 +43,15 @@ export function Header() {
     }
   }, [mobileOpen])
 
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [mobileOpen])
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const target = document.querySelector(href)
@@ -68,6 +77,10 @@ export function Header() {
           <img
             src="/rodrologo.png"
             alt="Rodricks Analytics Logo"
+            width="60"
+            height="60"
+            loading="eager"
+            decoding="async"
             className="h-[52px] w-[52px] sm:h-[60px] sm:w-[60px] object-contain drop-shadow-[0_0_12px_rgba(212,148,43,0.4)] transition-transform hover:scale-105 shrink-0"
           />
           <span className="hidden sm:flex flex-col leading-none">

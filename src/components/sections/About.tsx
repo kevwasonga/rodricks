@@ -29,6 +29,10 @@ export function About() {
                   <img
                     src="/rodrologo.png"
                     alt="Rodricks Analytics Logo"
+                    width="144"
+                    height="144"
+                    loading="lazy"
+                    decoding="async"
                     className="h-32 w-32 sm:h-36 sm:w-36 object-contain opacity-90 drop-shadow-[0_0_15px_rgba(212,148,43,0.35)] transition-all hover:opacity-100 hover:scale-[1.02]"
                   />
                 </div>

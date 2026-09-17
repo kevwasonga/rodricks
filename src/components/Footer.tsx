@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.7fr_0.9fr_1.1fr_1.3fr] gap-10 lg:gap-8 mb-10">
           <div>
             <a href="#home" className="flex items-center gap-3 mb-4">
-              <img src="/rodrologo.png" alt="Rodricks Analytics Logo" className="h-12 w-12 object-contain shrink-0" />
+              <img src="/rodrologo.png" alt="Rodricks Analytics Logo" width="48" height="48" loading="lazy" decoding="async" className="h-12 w-12 object-contain shrink-0" />
               <span className="flex flex-col">
                 <span className="font-display font-bold tracking-wider text-foreground">
                   RODRICKS<span className="text-teal-400"> ANALYTICS</span>

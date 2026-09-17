@@ -15,7 +15,7 @@
     --secondary: 225 10% 12%;
     --secondary-foreground: 240 10% 92%;
     --muted: 225 10% 10%;
-    --muted-foreground: 240 5% 63%;
+    --muted-foreground: 240 6% 68%;
     --accent: 179 52% 33%;
     --accent-foreground: 240 10% 92%;
     --destructive: 0 62% 55%;
@@ -43,7 +43,7 @@
     --secondary: 225 10% 12%;
     --secondary-foreground: 240 10% 92%;
     --muted: 225 10% 10%;
-    --muted-foreground: 240 5% 63%;
+    --muted-foreground: 240 6% 68%;
     --accent: 179 52% 33%;
     --accent-foreground: 240 10% 92%;
     --destructive: 0 62% 55%;
@@ -138,4 +138,40 @@
   .delay-300 { animation-delay: 300ms; }
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .sr-only:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
