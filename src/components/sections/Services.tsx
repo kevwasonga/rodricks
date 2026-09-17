@@ -57,8 +57,15 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="section bg-background" aria-labelledby="services-heading">
-      <div className="container-custom">
+    <section
+      id="services"
+      className="section relative bg-[hsl(225_15%_7.5%)] border-y border-primary/10"
+      aria-labelledby="services-heading"
+    >
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(212,148,43,0.05)_0%,transparent_70%)]" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="container-custom relative">
         <motion.div
           className="section-header"
           initial={{ opacity: 0, y: 20 }}

@@ -31,7 +31,7 @@ export function Preloader() {
               animate={{ scale: [0.9, 1.02, 0.9], opacity: [0.85, 1, 0.85] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <img src="/rodrologo.png" alt="Rodricks Analytics" width="176" height="176" loading="eager" decoding="async" className="h-36 w-36 sm:h-44 sm:w-44 object-contain drop-shadow-[0_0_24px_rgba(212,148,43,0.5)]" />
+              <img src="/logo-512-circle.png" alt="Rodricks Analytics" width="176" height="176" loading="eager" decoding="async" className="h-36 w-36 sm:h-44 sm:w-44 object-contain drop-shadow-[0_0_28px_rgba(212,148,43,0.55)]" />
             </motion.div>
             <div className="mx-auto mb-3 h-0.5 w-48 overflow-hidden rounded bg-border/30">
               <motion.div

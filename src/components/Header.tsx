@@ -74,13 +74,13 @@ export function Header() {
       <nav className="container-custom flex items-center justify-between gap-6" aria-label="Main navigation">
         <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-3 shrink-0">
           <img
-            src="/rodrologo.png"
+            src="/logo-512-circle.png"
             alt="Rodricks Analytics Logo"
             width="44"
             height="44"
             loading="eager"
             decoding="async"
-            className="h-11 w-11 object-cover rounded-full shadow-[0_0_0_2px_hsl(var(--primary)/0.18)] shrink-0"
+            className="h-11 w-11 object-cover rounded-full shadow-[0_0_0_2px_hsl(var(--primary)/0.28),0_0_14px_hsl(var(--primary)/0.22)] shrink-0"
           />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display font-bold text-[0.95rem] tracking-[0.03em] text-white">RODRICKS ANALYTICS</span>

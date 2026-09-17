@@ -27,13 +27,13 @@ export function About() {
               <div className="relative z-10 p-6 sm:p-8 text-center w-full">
                 <div className="mb-6 flex justify-center">
                   <img
-                    src="/rodrologo.png"
+                    src="/logo-512-circle.png"
                     alt="Rodricks Analytics Logo"
                     width="144"
                     height="144"
                     loading="lazy"
                     decoding="async"
-                    className="h-32 w-32 sm:h-36 sm:w-36 object-contain opacity-90 drop-shadow-[0_0_15px_rgba(212,148,43,0.35)] transition-all hover:opacity-100 hover:scale-[1.02]"
+                    className="h-32 w-32 sm:h-36 sm:w-36 object-contain drop-shadow-[0_0_22px_rgba(212,148,43,0.45)] transition-all hover:opacity-100 hover:scale-[1.02]"
                   />
                 </div>
                 <span className="font-mono text-[11px] uppercase tracking-[3px] text-muted-foreground block mb-2">Est. 2022</span>
