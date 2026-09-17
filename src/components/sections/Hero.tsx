@@ -189,6 +189,16 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen bg-background overflow-hidden flex flex-col" aria-labelledby="hero-heading">
+      <img
+        src="/images/hero-bg.webp"
+        alt=""
+        width="1600"
+        height="899"
+        loading="eager"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.12] pointer-events-none select-none"
+        aria-hidden="true"
+      />
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-45 pointer-events-none" aria-hidden="true" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(212,148,43,0.07)_0%,transparent_60%),radial-gradient(ellipse_60%_80%_at_80%_50%,rgba(13,155,155,0.05)_0%,transparent_60%),linear-gradient(180deg,transparent_50%,hsl(var(--background))_100%)] pointer-events-none" aria-hidden="true" />
 
