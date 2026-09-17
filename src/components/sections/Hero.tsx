@@ -44,11 +44,17 @@ export function Hero() {
     if (!canvas) return
     const ctx = canvas.getContext("2d")
     if (!ctx) return
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      ctx.fillStyle = "rgba(212,148,43,0.03)"
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      return
+    }
 
     let W = 0,
       H = 0,
       nodes: Node[] = [],
-      animId = 0
+      animId = 0,
+      paused = false
 
     const resize = () => {
       W = canvas.width = canvas.offsetWidth
@@ -94,11 +100,17 @@ export function Hero() {
     }
 
     const buildNodes = () => {
+      const isMobile = window.innerWidth < 768
+      const cap = isMobile ? 32 : 80
       const count = Math.floor((W * H) / 14000)
-      nodes = Array.from({ length: Math.min(count, 80) }, () => new Node())
+      nodes = Array.from({ length: Math.min(count, cap) }, () => new Node())
     }
 
     const draw = () => {
+      if (paused) {
+        animId = requestAnimationFrame(draw)
+        return
+      }
       ctx.clearRect(0, 0, W, H)
       const LINK_DIST = 120
       for (let i = 0; i < nodes.length; i++) {
@@ -143,14 +155,34 @@ export function Hero() {
     resize()
     buildNodes()
     draw()
+
     const onResize = () => {
       resize()
       buildNodes()
     }
     window.addEventListener("resize", onResize)
+
+    const hero = document.getElementById("home")
+    const obs = hero
+      ? new IntersectionObserver(
+          (entries) => {
+            paused = !entries[0].isIntersecting
+          },
+          { threshold: 0 }
+        )
+      : null
+    if (hero && obs) obs.observe(hero)
+
+    const onVis = () => {
+      paused = document.hidden
+    }
+    document.addEventListener("visibilitychange", onVis)
+
     return () => {
       cancelAnimationFrame(animId)
       window.removeEventListener("resize", onResize)
+      document.removeEventListener("visibilitychange", onVis)
+      if (hero && obs) obs.unobserve(hero)
     }
   }, [])
 
