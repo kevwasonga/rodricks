@@ -2,55 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Synergy Hub inspired tokens — mapped to shadcn */
 @layer base {
   :root {
-    --background: 225 15% 5%;
-    --foreground: 240 10% 92%;
-    --card: 225 15% 7%;
-    --card-foreground: 240 10% 92%;
-    --popover: 225 15% 7%;
-    --popover-foreground: 240 10% 92%;
-    --primary: 38 72% 50%;
-    --primary-foreground: 225 15% 5%;
-    --secondary: 225 10% 12%;
-    --secondary-foreground: 240 10% 92%;
-    --muted: 225 10% 10%;
-    --muted-foreground: 240 6% 68%;
-    --accent: 179 52% 33%;
-    --accent-foreground: 240 10% 92%;
+    /* Synergy palette */
+    --syn-dark: 0 0% 4%;
+    --syn-dark-2: 0 0% 7%;
+    --syn-dark-3: 0 0% 10%;
+    --syn-dark-4: 0 0% 13%;
+    --syn-gold: 38 45% 61%;
+    --syn-gold-light: 40 55% 71%;
+    --syn-gold-dark: 38 45% 45%;
+    --syn-gold-subtle: 38 45% 61% / 0.12;
+    --syn-gold-border: 38 45% 61% / 0.18;
+    --syn-text: 38 20% 93%;
+    --syn-text-mid: 38 12% 68%;
+    --syn-text-muted: 34 10% 57%;
+    --syn-green: 142 72% 48%;
+    /* shadcn mapping */
+    --background: 0 0% 4%;
+    --foreground: 38 20% 93%;
+    --card: 0 0% 7%;
+    --card-foreground: 38 20% 93%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 38 20% 93%;
+    --primary: 38 45% 61%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 38 20% 93%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 38 12% 68%;
+    --accent: 38 45% 61%;
+    --accent-foreground: 0 0% 4%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 240 10% 92%;
-    --border: 38 72% 50% / 0.15;
-    --input: 38 72% 50% / 0.15;
-    --ring: 38 72% 50%;
-    --radius: 0.5rem;
-    --teal: 179 52% 33%;
-    --teal-light: 179 60% 40%;
-    --font-syne: 'Syne', sans-serif;
-    --font-space-grotesk: 'Space Grotesk', sans-serif;
-    --font-space-mono: 'Space Mono', monospace;
+    --destructive-foreground: 38 20% 93%;
+    --border: 38 45% 61% / 0.18;
+    --input: 38 45% 61% / 0.12;
+    --ring: 38 45% 61%;
+    --radius: 0.75rem;
+    --teal: 38 45% 61%;
+    --teal-light: 40 55% 71%;
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-jetbrains: 'JetBrains Mono', ui-monospace, monospace;
+    /* legacy aliases for existing components */
+    --font-syne: var(--font-inter);
+    --font-space-grotesk: var(--font-inter);
+    --font-space-mono: var(--font-jetbrains);
   }
 
   .dark {
-    --background: 225 15% 5%;
-    --foreground: 240 10% 92%;
-    --card: 225 15% 7%;
-    --card-foreground: 240 10% 92%;
-    --popover: 225 15% 7%;
-    --popover-foreground: 240 10% 92%;
-    --primary: 38 72% 50%;
-    --primary-foreground: 225 15% 5%;
-    --secondary: 225 10% 12%;
-    --secondary-foreground: 240 10% 92%;
-    --muted: 225 10% 10%;
-    --muted-foreground: 240 6% 68%;
-    --accent: 179 52% 33%;
-    --accent-foreground: 240 10% 92%;
+    --background: 0 0% 4%;
+    --foreground: 38 20% 93%;
+    --card: 0 0% 7%;
+    --card-foreground: 38 20% 93%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 38 20% 93%;
+    --primary: 38 45% 61%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 38 20% 93%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 38 12% 68%;
+    --accent: 38 45% 61%;
+    --accent-foreground: 0 0% 4%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 240 10% 92%;
-    --border: 38 72% 50% / 0.15;
-    --input: 38 72% 50% / 0.15;
-    --ring: 38 72% 50%;
+    --destructive-foreground: 38 20% 93%;
+    --border: 38 45% 61% / 0.18;
+    --input: 38 45% 61% / 0.12;
+    --ring: 38 45% 61%;
   }
 }
 
@@ -60,10 +79,29 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-family: var(--font-inter);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
   html {
     scroll-behavior: smooth;
+  }
+  /* Material Symbols — synergy style */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
   ::-webkit-scrollbar {
     width: 5px;
@@ -81,38 +119,83 @@
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-10;
+    @apply w-full mx-auto;
+    max-width: 1200px;
+    padding: 0 clamp(16px, 4vw, 32px);
+  }
+  @media (min-width: 1920px) {
+    .container-custom {
+      max-width: 1400px;
+    }
   }
   .section {
-    @apply py-20 sm:py-28 lg:py-32 relative;
+    @apply relative;
+    padding: clamp(64px, 12vw, 112px) 0;
   }
   .section-header {
-    @apply text-center max-w-3xl mx-auto mb-16;
+    @apply text-center max-w-3xl mx-auto;
+    margin-bottom: clamp(40px, 6vw, 64px);
   }
   .section-tag {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50
-           font-mono text-xs uppercase tracking-widest text-teal-400 bg-teal-500/5
-           mb-6;
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full border font-mono text-xs uppercase tracking-widest mb-6;
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.08);
+    border-color: hsl(var(--primary) / 0.18);
+    font-family: var(--font-inter);
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    font-size: 0.72rem;
+  }
+  .section-tag .material-symbols-outlined {
+    font-size: 15px;
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+    color: hsl(var(--primary));
   }
   .section-heading {
-    @apply font-display font-extrabold text-foreground tracking-tight;
-    font-size: clamp(2rem, 4vw, 3rem);
+    @apply font-display font-bold text-foreground tracking-tight;
+    font-family: var(--font-inter);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
   .section-sub {
-    @apply text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mt-6;
+    @apply text-muted-foreground text-base max-w-2xl mx-auto mt-4;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.8;
   }
   .gradient-text {
-    @apply bg-gradient-to-r from-amber-400 via-amber-500 to-teal-400 bg-clip-text text-transparent;
+    color: hsl(var(--primary));
   }
   .sh-rule {
-    @apply w-12 h-0.5 bg-gradient-to-r from-amber-500 to-teal-400 rounded mx-auto mb-6;
+    @apply w-12 h-[3px] rounded mx-auto mt-6 mb-0;
+    background: hsl(var(--primary));
   }
   .card-base {
-    @apply bg-card border border-border/50 rounded-xl transition-all duration-300;
+    @apply bg-card border rounded-xl transition-all duration-300;
+    border-color: hsl(var(--primary) / 0.1);
+    border-radius: 20px;
   }
   .card-hover {
-    @apply hover:border-primary/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1.5;
+    @apply hover:shadow-[0_6px_28px_rgba(0,0,0,0.55)] hover:-translate-y-1;
+    border-color: hsl(var(--primary) / 0.18);
+  }
+  .card-hover:hover {
+    border-color: hsl(var(--primary) / 0.3);
+  }
+  /* synergy button variants mapped to shadcn */
+  .btn-synergy-primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: 12px;
+    font-family: var(--font-inter);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .btn-synergy-primary:hover {
+    background: hsl(40 55% 71%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px hsl(var(--primary) / 0.3);
   }
 }
 
@@ -164,6 +247,9 @@
     background: hsl(var(--card));
     border: 1px solid hsl(var(--border));
     border-radius: 0.5rem;
+  }
+  .font-numbers {
+    font-family: var(--font-jetbrains);
   }
 }
 

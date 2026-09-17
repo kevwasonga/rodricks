@@ -90,9 +90,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        display: ["var(--font-syne)", "sans-serif"],
-        body: ["var(--font-space-grotesk)", "sans-serif"],
-        mono: ["var(--font-space-mono)", "monospace"],
+        display: ["var(--font-inter)", "Inter", "sans-serif"],
+        body: ["var(--font-inter)", "Inter", "sans-serif"],
+        mono: ["var(--font-jetbrains)", "JetBrains Mono", "monospace"],
       },
       keyframes: {
         "accordion-down": {
