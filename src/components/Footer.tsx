@@ -73,10 +73,14 @@ export function Footer() {
                 decoding="async"
                 className="h-12 w-12 object-cover rounded-full shrink-0 shadow-[0_0_0_2px_hsl(var(--primary)/0.24),0_0_12px_hsl(var(--primary)/0.18)] transition-all duration-300 group-hover:scale-[1.5] group-hover:shadow-[0_0_0_3px_hsl(var(--primary)/0.45),0_0_22px_hsl(var(--primary)/0.4)]"
               />
-              <span className="flex flex-col leading-none">
-                <span className="font-display font-bold tracking-[0.03em] text-white text-[0.95rem]">
-                  RODRICKS<span className="text-primary"> ANALYTICS</span>
+              <span className="flex items-baseline gap-2 leading-none">
+                <span className="font-display font-bold tracking-[0.03em] text-white text-[0.98rem]">
+                  RODRICKS
                 </span>
+                <span className="font-display font-medium tracking-[0.1em] text-[0.78rem] text-muted-foreground">
+                  ANALYTICS
+                </span>
+              </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-primary mt-1">
                   Statistics · Research · Data Analysis
                 </span>

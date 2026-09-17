@@ -8,8 +8,6 @@ const pillars = [
   { icon: Shield, title: "Data Integrity", desc: "Ethical, transparent, accountable" },
 ]
 
-const tools = ["R", "SPSS", "STATA", "Advanced Excel", "Nvivo"]
-
 export function About() {
   return (
     <section id="about" className="section relative bg-muted/20" aria-labelledby="about-heading">
@@ -45,13 +43,6 @@ export function About() {
                   Analytics
                 </h3>
                 <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Nairobi, Kenya</span>
-                <div className="flex flex-wrap justify-center gap-2 mt-6">
-                  {tools.map((tool) => (
-                    <span key={tool} className="font-mono text-[11px] tracking-wide px-2.5 py-1 border border-primary/25 rounded bg-primary/10 text-primary">
-                      {tool}
-                    </span>
-                  ))}
-                </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-primary to-primary opacity-40" />
             </div>

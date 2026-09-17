@@ -82,10 +82,11 @@ export function Header() {
             decoding="async"
             className="h-11 w-11 object-cover rounded-full shadow-[0_0_0_2px_hsl(var(--primary)/0.28),0_0_14px_hsl(var(--primary)/0.22)] shrink-0 transition-all duration-300 group-hover:scale-[1.35] group-hover:shadow-[0_0_0_3px_hsl(var(--primary)/0.5),0_0_24px_hsl(var(--primary)/0.45)]"
           />
-          <span className="hidden sm:flex flex-col leading-none">
-            <span className="font-display font-bold text-[0.95rem] tracking-[0.03em] text-white">RODRICKS ANALYTICS</span>
-            <span className="font-mono text-[0.62rem] tracking-[0.12em] text-primary uppercase">Statistics · Research · Data Analysis</span>
+          <span className="hidden sm:flex items-baseline gap-2 leading-none">
+            <span className="font-display font-bold text-[0.98rem] tracking-[0.03em] text-white">RODRICKS</span>
+            <span className="font-display font-medium text-[0.78rem] tracking-[0.1em] text-muted-foreground">ANALYTICS</span>
           </span>
+          <span className="hidden sm:block font-mono text-[0.62rem] tracking-[0.12em] text-primary uppercase">Statistics · Research · Data Analysis</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-0.5">
