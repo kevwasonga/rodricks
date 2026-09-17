@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { useForm, Controller } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 import { Phone, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,17 +10,38 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-export function Contact() {
-  const [service, setService] = useState("")
-  const [sent, setSent] = useState(false)
+const schema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Valid email required"),
+  phone: z.string().optional(),
+  service: z.string().min(1, "Please select a service"),
+  message: z.string().min(10, "Please describe your project (≥10 chars)"),
+  website: z.string().max(0, "Bot detected"),
+})
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+type FormValues = z.infer<typeof schema>
+
+export function Contact() {
+  const [sent, setSent] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    defaultValues: { name: "", email: "", phone: "", service: "", message: "", website: "" },
+  })
+
+  const onSubmit = handleSubmit(async (data) => {
+    if (data.website) return
+    // TODO: replace with fetch('/api/contact', { method:'POST', body: JSON.stringify(data) })
+    await new Promise((r) => setTimeout(r, 600))
     setSent(true)
+    reset()
     setTimeout(() => setSent(false), 3500)
-    ;(e.target as HTMLFormElement).reset()
-    setService("")
-  }
+  })
 
   return (
     <section id="contact" className="section bg-muted/20" aria-labelledby="contact-heading">
@@ -38,12 +62,7 @@ export function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-[1fr_1.35fr] gap-8 lg:gap-10 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl leading-tight mb-3">
               Let&apos;s Transform
               <br />
@@ -94,13 +113,7 @@ export function Contact() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="card-base overflow-hidden"
-          >
+          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="card-base overflow-hidden">
             <div className="flex items-center gap-2 px-4 py-3 bg-muted border-b border-border/30">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
@@ -108,58 +121,64 @@ export function Contact() {
               <span className="font-mono text-xs text-muted-foreground ml-2">inquiry_form.py</span>
             </div>
 
-            <form onSubmit={onSubmit} className="p-5 sm:p-7 space-y-4">
+            <form onSubmit={onSubmit} noValidate className="p-5 sm:p-7 space-y-4">
+              {/* honeypot */}
+              <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" {...register("website")} />
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <Label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Name</Label>
-                  <Input name="name" placeholder="Your full name" required className="bg-muted/50 border-border/40 h-11" />
+                  <Label htmlFor="name" className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Name</Label>
+                  <Input id="name" placeholder="Your full name" aria-invalid={!!errors.name} className="bg-muted/50 border-border/40 h-11" {...register("name")} />
+                  {errors.name && <p className="text-xs text-red-400">{errors.name.message}</p>}
                 </div>
                 <div className="space-y-1.5">
-                  <Label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Email</Label>
-                  <Input name="email" type="email" placeholder="your@email.com" required className="bg-muted/50 border-border/40 h-11" />
+                  <Label htmlFor="email" className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Email</Label>
+                  <Input id="email" type="email" placeholder="your@email.com" aria-invalid={!!errors.email} className="bg-muted/50 border-border/40 h-11" {...register("email")} />
+                  {errors.email && <p className="text-xs text-red-400">{errors.email.message}</p>}
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <Label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Phone</Label>
-                  <Input name="phone" placeholder="+254 7XX XXX XXX" className="bg-muted/50 border-border/40 h-11" />
+                  <Label htmlFor="phone" className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Phone</Label>
+                  <Input id="phone" placeholder="+254 7XX XXX XXX" className="bg-muted/50 border-border/40 h-11" {...register("phone")} />
                 </div>
                 <div className="space-y-1.5">
                   <Label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Service</Label>
-                  <Select value={service} onValueChange={setService} required>
-                    <SelectTrigger className="bg-muted/50 border-border/40 h-11">
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="statistical-analysis">Statistical Analysis</SelectItem>
-                      <SelectItem value="research-consultancy">Research Consultancy</SelectItem>
-                      <SelectItem value="financial-policy-analysis">Financial & Policy Analysis</SelectItem>
-                      <SelectItem value="business-applied-research">Business & Applied Research</SelectItem>
-                      <SelectItem value="academic-assistance">Academic Assistance</SelectItem>
-                      <SelectItem value="corporate-services">Corporate Services</SelectItem>
-                      <SelectItem value="other">Other / Not Sure</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <input type="hidden" name="service" value={service} />
+                  <Controller
+                    control={control}
+                    name="service"
+                    render={({ field }) => (
+                      <Select value={field.value} onValueChange={field.onChange}>
+                        <SelectTrigger className="bg-muted/50 border-border/40 h-11" aria-invalid={!!errors.service}>
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="statistical-analysis">Statistical Analysis</SelectItem>
+                          <SelectItem value="research-consultancy">Research Consultancy</SelectItem>
+                          <SelectItem value="financial-policy-analysis">Financial & Policy Analysis</SelectItem>
+                          <SelectItem value="business-applied-research">Business & Applied Research</SelectItem>
+                          <SelectItem value="academic-assistance">Academic Assistance</SelectItem>
+                          <SelectItem value="corporate-services">Corporate Services</SelectItem>
+                          <SelectItem value="other">Other / Not Sure</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {errors.service && <p className="text-xs text-red-400">{errors.service.message}</p>}
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <Label className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Project Details</Label>
-                <Textarea name="message" placeholder="Tell us about your data analysis project, research objectives, or questions..." required rows={5} className="bg-muted/50 border-border/40 min-h-[120px] resize-y" />
+                <Label htmlFor="message" className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Project Details</Label>
+                <Textarea id="message" placeholder="Tell us about your data analysis project, research objectives, or questions..." rows={5} aria-invalid={!!errors.message} className="bg-muted/50 border-border/40 min-h-[120px] resize-y" {...register("message")} />
+                {errors.message && <p className="text-xs text-red-400">{errors.message.message}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full gap-2 font-semibold h-11" disabled={sent}>
-                {sent ? (
-                  <>✓ Message Sent!</>
-                ) : (
-                  <>
-                    Send Message <SendIcon />
-                  </>
-                )}
+              <Button type="submit" size="lg" className="w-full gap-2 font-semibold h-11" disabled={isSubmitting || sent}>
+                {sent ? <>✓ Message Sent!</> : isSubmitting ? <>Sending…</> : <>Send Message <SendIcon /></>}
               </Button>
-              {sent && <p className="text-center text-sm text-green-400 font-medium">Thanks — we&apos;ll respond promptly.</p>}
+              {sent && <p role="status" className="text-center text-sm text-green-400 font-medium">Thanks — we&apos;ll respond promptly.</p>}
             </form>
           </motion.div>
         </div>
