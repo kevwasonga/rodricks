@@ -71,7 +71,7 @@ export function Footer() {
                 height="48"
                 loading="lazy"
                 decoding="async"
-                className="h-12 w-12 object-cover rounded-full shrink-0 shadow-[0_0_0_2px_hsl(var(--primary)/0.24),0_0_12px_hsl(var(--primary)/0.18)] transition-transform duration-300 group-hover:scale-125"
+                className="h-12 w-12 object-cover rounded-full shrink-0 shadow-[0_0_0_2px_hsl(var(--primary)/0.24),0_0_12px_hsl(var(--primary)/0.18)] transition-transform duration-300 group-hover:scale-[1.5]"
               />
               <span className="flex flex-col leading-none">
                 <span className="font-display font-bold tracking-[0.03em] text-white text-[0.95rem]">
