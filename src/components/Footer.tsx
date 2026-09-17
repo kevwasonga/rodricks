@@ -56,7 +56,7 @@ export function Footer() {
   return (
     <footer className="relative bg-background border-t border-primary/10 pt-16 pb-8 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(212,148,43,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(212,148,43,0.5)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(47,147,218,0.32)_1px,transparent_1px),linear-gradient(90deg,rgba(47,147,218,0.32)_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 

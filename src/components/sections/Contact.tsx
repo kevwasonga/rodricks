@@ -93,7 +93,7 @@ export function Contact() {
 
             <div className="space-y-3 mb-7">
               <a href="tel:+254794627947" className="flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-card border border-border/40 hover:border-primary/20 hover:translate-x-1 transition-all">
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 shrink-0">
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/10 border border-primary/15 flex items-center justify-center text-primary shrink-0">
                   <Phone className="h-4 w-4" />
                 </span>
                 <span>
@@ -102,7 +102,7 @@ export function Contact() {
                 </span>
               </a>
               <a href="tel:+254773625138" className="flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-card border border-border/40 hover:border-primary/20 hover:translate-x-1 transition-all">
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 shrink-0">
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/10 border border-primary/15 flex items-center justify-center text-primary shrink-0">
                   <Phone className="h-4 w-4" />
                 </span>
                 <span>
@@ -111,7 +111,7 @@ export function Contact() {
                 </span>
               </a>
               <a href="mailto:otienorodricks8@gmail.com" className="flex items-center gap-3 p-3.5 sm:p-4 rounded-xl bg-card border border-border/40 hover:border-primary/20 hover:translate-x-1 transition-all">
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 shrink-0">
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/10 border border-primary/15 flex items-center justify-center text-primary shrink-0">
                   <Mail className="h-4 w-4" />
                 </span>
                 <span>
@@ -124,7 +124,7 @@ export function Contact() {
             <div>
               <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-3">Quick WhatsApp Consultation:</p>
               <div className="space-y-2.5">
-                <a href="https://wa.me/254794627947?text=Hello%20Rodricks%20Otieno!%20I%27d%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 hover:bg-green-500/15 transition-colors text-sm font-medium">
+                <a href="https://wa.me/254794627947?text=Hello%20Rodricks%20Otieno!%20I%27d%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg bg-accent/10 border border-accent/25 text-accent hover:bg-accent/15 transition-colors text-sm font-medium">
                   <span
                     className="material-symbols-outlined shrink-0"
                     style={{ fontSize: 21, fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
@@ -133,11 +133,11 @@ export function Contact() {
                     chat
                   </span>
                   <span className="flex flex-col leading-tight">
-                    <strong className="text-sm font-semibold text-green-400">Rodricks Otieno</strong>
+                    <strong className="text-sm font-semibold">Rodricks Otieno</strong>
                     <span className="font-mono text-xs text-muted-foreground">0794 627 947</span>
                   </span>
                 </a>
-                <a href="https://wa.me/254773625138?text=Hello%20Rodricks%20Otieno!%20I%27d%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 hover:bg-green-500/15 transition-colors text-sm font-medium">
+                <a href="https://wa.me/254773625138?text=Hello%20Rodricks%20Otieno!%20I%27d%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg bg-accent/10 border border-accent/25 text-accent hover:bg-accent/15 transition-colors text-sm font-medium">
                   <span
                     className="material-symbols-outlined shrink-0"
                     style={{ fontSize: 21, fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
@@ -146,7 +146,7 @@ export function Contact() {
                     chat
                   </span>
                   <span className="flex flex-col leading-tight">
-                    <strong className="text-sm font-semibold text-green-400">Support</strong>
+                    <strong className="text-sm font-semibold">Support</strong>
                     <span className="font-mono text-xs text-muted-foreground">0773 625 138</span>
                   </span>
                 </a>

@@ -5,30 +5,44 @@
 /* Original Rodricks palette — retained, with Synergy fonts/layout */
 @layer base {
   :root {
-    /* Original Rodricks palette */
-    --background: 225 15% 5%;
-    --foreground: 240 10% 92%;
-    --card: 225 15% 7%;
-    --card-foreground: 240 10% 92%;
-    --popover: 225 15% 7%;
-    --popover-foreground: 240 10% 92%;
-    --primary: 38 72% 50%;
-    --primary-foreground: 225 15% 5%;
-    --secondary: 225 10% 12%;
-    --secondary-foreground: 240 10% 92%;
-    --muted: 225 10% 10%;
-    --muted-foreground: 240 6% 68%;
-    --accent: 179 52% 33%;
-    --accent-foreground: 240 10% 92%;
+    /* Cool analytical palette (replaces warm amber/teal) */
+    --background: 222 25% 7%;
+    --foreground: 210 20% 94%;
+    --card: 222 22% 10%;
+    --card-foreground: 210 20% 94%;
+    --popover: 222 22% 10%;
+    --popover-foreground: 210 20% 94%;
+    --primary: 205 70% 52%;
+    --primary-foreground: 222 25% 7%;
+    --secondary: 222 15% 14%;
+    --secondary-foreground: 210 20% 94%;
+    --muted: 222 15% 12%;
+    --muted-foreground: 215 12% 65%;
+    --accent: 168 55% 42%;
+    --accent-foreground: 210 20% 94%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 240 10% 92%;
-    --border: 38 72% 50% / 0.15;
-    --input: 38 72% 50% / 0.15;
-    --ring: 38 72% 50%;
+    --destructive-foreground: 210 20% 94%;
+    --border: 205 70% 52% / 0.15;
+    --input: 205 70% 52% / 0.15;
+    --ring: 205 70% 52%;
     --radius: 0.75rem;
     --radius-card: 1.25rem;
-    --teal: 179 52% 33%;
-    --teal-light: 179 60% 40%;
+    --teal: 168 55% 42%;
+    --teal-light: 168 60% 50%;
+    /* Reserve accent — gold for at most 1-2 highlights per page */
+    --highlight-gold: 38 72% 50%;
+    --text-hero: clamp(2.5rem, 5vw, 4rem);
+    /* Spacing scale (4px increments) */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-28: 7rem;
     /* Serif + sans paired type system (Fraunces / Inter / JetBrains Mono) */
     --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
     --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -40,25 +54,25 @@
   }
 
   .dark {
-    --background: 225 15% 5%;
-    --foreground: 240 10% 92%;
-    --card: 225 15% 7%;
-    --card-foreground: 240 10% 92%;
-    --popover: 225 15% 7%;
-    --popover-foreground: 240 10% 92%;
-    --primary: 38 72% 50%;
-    --primary-foreground: 225 15% 5%;
-    --secondary: 225 10% 12%;
-    --secondary-foreground: 240 10% 92%;
-    --muted: 225 10% 10%;
-    --muted-foreground: 240 6% 68%;
-    --accent: 179 52% 33%;
-    --accent-foreground: 240 10% 92%;
+    --background: 222 25% 7%;
+    --foreground: 210 20% 94%;
+    --card: 222 22% 10%;
+    --card-foreground: 210 20% 94%;
+    --popover: 222 22% 10%;
+    --popover-foreground: 210 20% 94%;
+    --primary: 205 70% 52%;
+    --primary-foreground: 222 25% 7%;
+    --secondary: 222 15% 14%;
+    --secondary-foreground: 210 20% 94%;
+    --muted: 222 15% 12%;
+    --muted-foreground: 215 12% 65%;
+    --accent: 168 55% 42%;
+    --accent-foreground: 210 20% 94%;
     --destructive: 0 62% 55%;
-    --destructive-foreground: 240 10% 92%;
-    --border: 38 72% 50% / 0.15;
-    --input: 38 72% 50% / 0.15;
-    --ring: 38 72% 50%;
+    --destructive-foreground: 210 20% 94%;
+    --border: 205 70% 52% / 0.15;
+    --input: 205 70% 52% / 0.15;
+    --ring: 205 70% 52%;
   }
 }
 
@@ -128,7 +142,12 @@
   }
   .section {
     @apply relative;
-    padding: clamp(64px, 12vw, 112px) 0;
+    padding: var(--space-20) 0;
+  }
+  @media (min-width: 1024px) {
+    .section {
+      padding: var(--space-28) 0;
+    }
   }
   .section-header {
     @apply text-center max-w-3xl mx-auto;
@@ -152,10 +171,10 @@
   .section-heading {
     @apply font-display font-bold text-foreground tracking-tight;
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    line-height: 1.2;
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    line-height: 1.15;
     letter-spacing: -0.01em;
-    font-weight: 650;
+    font-weight: 700;
     font-optical-sizing: auto;
   }
   .section-sub {
@@ -207,7 +226,7 @@
     letter-spacing: 0.02em;
   }
   .btn-synergy-primary:hover {
-    background: hsl(40 55% 71%);
+    background: hsl(205 72% 58%);
     transform: translateY(-2px);
     box-shadow: 0 8px 28px hsl(var(--primary) / 0.3);
   }
@@ -325,6 +344,9 @@
   }
   .font-numbers {
     font-family: var(--font-jetbrains);
+  }
+  .text-highlight {
+    color: hsl(var(--highlight-gold));
   }
   @keyframes waMenuIn {
     from {

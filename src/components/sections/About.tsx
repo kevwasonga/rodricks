@@ -23,7 +23,7 @@ export function About() {
             transition={{ duration: 0.7 }}
           >
             <div className="card-base relative overflow-hidden min-h-[380px] sm:min-h-[420px] flex items-center justify-center">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,148,43,0.08)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(47,147,218,0.09)_0%,transparent_70%)]" />
               <div className="relative z-10 p-6 sm:p-8 text-center w-full">
                 <div className="mb-6 flex justify-center">
                   <img
@@ -33,11 +33,10 @@ export function About() {
                     height="144"
                     loading="lazy"
                     decoding="async"
-                    className="h-32 w-32 sm:h-36 sm:w-36 object-contain drop-shadow-[0_0_22px_rgba(212,148,43,0.45)] transition-all hover:opacity-100 hover:scale-[1.02]"
+                    className="h-32 w-32 sm:h-36 sm:w-36 object-contain drop-shadow-[0_0_22px_rgba(47,147,218,0.4)] transition-all hover:opacity-100 hover:scale-[1.02]"
                   />
                 </div>
-                <span className="font-mono text-[11px] uppercase tracking-[3px] text-muted-foreground block mb-2">Est. 2022</span>
-                <h3 className="font-display font-extrabold text-3xl sm:text-4xl gradient-text leading-none mb-2">
+                <h3 className="font-display font-bold text-3xl sm:text-4xl gradient-text leading-none mb-2">
                   Rodricks
                   <br />
                   Analytics

@@ -151,7 +151,7 @@ export function Header() {
               href="https://wa.me/254794627947?text=Hello%20Rodricks%20Otieno!"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white hover:bg-green-500 transition-colors"
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-semibold text-accent hover:bg-accent/20 transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span> WhatsApp Consultation
             </a>

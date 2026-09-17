@@ -72,7 +72,7 @@ export function Services() {
         className="absolute inset-0 w-full h-full object-cover opacity-[0.10] pointer-events-none select-none"
         aria-hidden="true"
       />
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(212,148,43,0.05)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(47,147,218,0.06)_0%,transparent_70%)]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container-custom relative">
@@ -100,16 +100,16 @@ export function Services() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
             >
-              <Card className={cn("relative overflow-hidden h-full flex flex-col group hover:-translate-y-1.5 transition-all duration-300", service.featured && "border-primary/30 bg-gradient-to-br from-amber-500/[0.07] via-card to-teal-500/[0.04]")}>
+              <Card className={cn("relative overflow-hidden h-full flex flex-col group hover:-translate-y-1.5 transition-all duration-300", service.featured && "border-primary/30 bg-gradient-to-br from-primary/[0.09] via-card to-accent/[0.06]")}>
                 {service.featured && (
-                  <div className="pointer-events-none absolute -top-20 -right-16 h-44 w-44 rounded-full bg-[radial-gradient(circle,rgba(212,148,43,0.28),transparent_70%)] blur-2xl" aria-hidden="true" />
+                  <div className="pointer-events-none absolute -top-20 -right-16 h-44 w-44 rounded-full bg-[radial-gradient(circle,rgba(47,147,218,0.3),transparent_70%)] blur-2xl" aria-hidden="true" />
                 )}
                 {service.featured && (
                   <div className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-widest text-teal-400 px-2.5 py-1 border border-teal-500/25 rounded-full bg-teal-500/5">Most Requested</div>
                 )}
-                <div className="absolute top-5 left-5 font-display font-black text-5xl text-amber-500/[0.06] select-none">{service.num}</div>
+                <div className="absolute top-5 left-5 font-display font-bold text-5xl text-primary/[0.07] select-none">{service.num}</div>
                 <CardContent className="flex-1 flex flex-col p-6 pt-8 sm:p-7 sm:pt-10 relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500 mb-5 group-hover:bg-amber-500/15 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center text-primary mb-5 group-hover:bg-primary/15 transition-colors">
                     <service.icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <h3 className="font-display font-bold text-[18px] leading-tight mb-3">{service.title}</h3>
@@ -117,7 +117,7 @@ export function Services() {
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <ArrowRight className="h-3.5 w-3.5 text-amber-500 shrink-0 mt-0.5" aria-hidden="true" />
+                        <ArrowRight className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                         <span className="leading-tight">{feature}</span>
                       </li>
                     ))}

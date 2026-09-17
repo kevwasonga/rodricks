@@ -50,6 +50,7 @@ export default {
         },
         // Custom Rodricks Analytics palette
         amber: {
+          // reserved highlight gold — at most 1-2 uses per page
           50: "#fef9e7",
           100: "#fdecc7",
           200: "#fad58b",
@@ -63,17 +64,17 @@ export default {
           950: "#2e1d09",
         },
         teal: {
-          50: "#e6fcfc",
-          100: "#ccf9f9",
-          200: "#99f3f3",
-          300: "#66eded",
-          400: "#33e7e7",
-          500: "#0d9b9b",
-          600: "#0a7777",
-          700: "#085959",
-          800: "#063b3b",
-          900: "#053030",
-          950: "#021818",
+          50: "#e8faf4",
+          100: "#c8f4e8",
+          200: "#94e6d2",
+          300: "#5bd2b7",
+          400: "#33b89a",
+          500: "#30a98d",
+          600: "#1f8c73",
+          700: "#1a6f5c",
+          800: "#175a4b",
+          900: "#14493e",
+          950: "#082a23",
         },
         dark: {
           50: "#1f2430",

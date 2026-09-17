@@ -8,7 +8,6 @@ import { ArrowRight } from "lucide-react"
 const stats = [
   { label: "Projects", value: 50, suffix: "+" },
   { label: "Satisfaction", value: 98, suffix: "%" },
-  { label: "Yrs Experience", value: 15, suffix: "+" },
   { label: "Evidence-Based", value: 100, suffix: "%" },
 ]
 
@@ -46,7 +45,7 @@ export function Hero() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      ctx.fillStyle = "rgba(212,148,43,0.03)"
+      ctx.fillStyle = "rgba(47,147,218,0.03)"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       return
     }
@@ -95,7 +94,7 @@ export function Hero() {
         const pr = this.r + Math.sin(this.pulse) * 0.6
         ctx!.beginPath()
         ctx!.arc(this.x, this.y, pr, 0, Math.PI * 2)
-        ctx!.fillStyle = this.type === "teal" ? "rgba(13,155,155,0.7)" : "rgba(212,148,43,0.7)"
+        ctx!.fillStyle = this.type === "teal" ? "rgba(48,166,142,0.7)" : "rgba(47,147,218,0.7)"
         ctx!.fill()
       }
     }
@@ -124,7 +123,7 @@ export function Hero() {
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(212,148,43,${alpha})`
+            ctx.strokeStyle = `rgba(47,147,218,${alpha})`
             ctx.lineWidth = 0.8
             ctx.stroke()
           }
@@ -134,7 +133,7 @@ export function Hero() {
         ctx.beginPath()
         ctx.moveTo(0, y)
         ctx.lineTo(W, y)
-        ctx.strokeStyle = "rgba(212,148,43,0.03)"
+        ctx.strokeStyle = "rgba(47,147,218,0.03)"
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -142,7 +141,7 @@ export function Hero() {
         ctx.beginPath()
         ctx.moveTo(x, 0)
         ctx.lineTo(x, H)
-        ctx.strokeStyle = "rgba(212,148,43,0.03)"
+        ctx.strokeStyle = "rgba(47,147,218,0.03)"
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -200,14 +199,14 @@ export function Hero() {
         aria-hidden="true"
       />
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-45 pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(212,148,43,0.07)_0%,transparent_60%),radial-gradient(ellipse_60%_80%_at_80%_50%,rgba(13,155,155,0.05)_0%,transparent_60%),linear-gradient(180deg,transparent_50%,hsl(var(--background))_100%)] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(47,147,218,0.08)_0%,transparent_60%),radial-gradient(ellipse_60%_80%_at_80%_50%,rgba(48,166,142,0.06)_0%,transparent_60%),linear-gradient(180deg,transparent_50%,hsl(var(--background))_100%)] pointer-events-none" aria-hidden="true" />
 
       {floatingLabels.map((label, i) => (
         <motion.div
           key={i}
           className={cn(
             "absolute hidden lg:block font-mono text-xs tracking-wide text-teal-400/25 pointer-events-none",
-            "px-2 py-1 border border-teal-500/20 rounded bg-teal-500/5"
+            "px-2 py-1 border border-primary/20 rounded bg-primary/5"
           )}
           style={{ top: label.top, left: label.left, right: label.right, bottom: label.bottom } as React.CSSProperties}
           animate={{ y: [-8, 0, -8] }}
@@ -228,7 +227,7 @@ export function Hero() {
                 transition={{ duration: 0.6 }}
               >
                 <motion.span
-                  className="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_8px_rgb(13,155,155)] shrink-0"
+                  className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_hsl(var(--accent))] shrink-0"
                   animate={{ opacity: [1, 0.4, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
@@ -238,8 +237,8 @@ export function Hero() {
 
 <motion.h1
                 id="hero-heading"
-                className="font-display font-black tracking-tight"
-                style={{ fontSize: "clamp(4.5rem, 14vw, 12rem)", lineHeight: 0.92 }}
+className="font-display font-bold tracking-tight"
+                  style={{ fontSize: "var(--text-hero)", lineHeight: 1.1, maxWidth: "20ch" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
@@ -247,7 +246,7 @@ export function Hero() {
                 <span className="block gradient-text">
                   DATA
                 </span>
-                <span className="block text-foreground" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", fontWeight: 700, letterSpacing: "-0.01em" }}>
+                <span className="block text-foreground" style={{ fontSize: "var(--text-3xl)", fontWeight: 700, letterSpacing: "-0.01em" }}>
                   Into <span className="gradient-text">Intelligence</span>
                 </span>
               </motion.h1>
@@ -290,7 +289,7 @@ export function Hero() {
               </motion.div>
 
               <motion.div
-                className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border/40 border border-border/50 rounded-xl overflow-hidden"
+                className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border/40 border border-border/50 rounded-xl overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -369,7 +368,7 @@ export function Hero() {
 
                 <div className="absolute -top-2 -left-2 sm:top-8 sm:-left-4 hidden lg:flex animate-float" style={{ animationDelay: "0s" }}>
                   <div className="bg-card border border-border/50 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground flex items-center gap-1.5 shadow-lg whitespace-nowrap">
-                    <span className="material-symbols-outlined text-[16px] text-green-500" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Significant
+                    <span className="material-symbols-outlined text-[16px] text-highlight" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Significant
                   </div>
                 </div>
                 <div className="absolute -bottom-2 -right-2 sm:bottom-10 sm:-right-4 hidden lg:flex animate-float" style={{ animationDelay: "1s" }}>
