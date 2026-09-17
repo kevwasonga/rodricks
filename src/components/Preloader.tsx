@@ -35,14 +35,14 @@ export function Preloader() {
             </motion.div>
             <div className="mx-auto mb-3 h-0.5 w-48 overflow-hidden rounded bg-border/30">
               <motion.div
-                className="h-full w-full bg-gradient-to-r from-amber-500 to-amber-400"
+                className="h-full w-full bg-gradient-to-r from-primary to-primary"
                 initial={{ scaleX: 0.3, opacity: 0.3 }}
                 animate={{ scaleX: [0.3, 1, 0.3], opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
                 style={{ transformOrigin: "left" }}
               />
             </div>
-            <p className="font-mono text-[11px] tracking-[2px] text-teal-400">
+            <p className="font-mono text-[11px] tracking-[2px] text-primary">
               <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }}>
                 _
               </motion.span>{" "}

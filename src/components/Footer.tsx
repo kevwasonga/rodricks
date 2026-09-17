@@ -16,7 +16,7 @@ export function Footer() {
               <img src="/rodrologo.png" alt="Rodricks Analytics Logo" width="48" height="48" loading="lazy" decoding="async" className="h-12 w-12 object-contain shrink-0" />
               <span className="flex flex-col">
                 <span className="font-display font-bold tracking-wider text-foreground">
-                  RODRICKS<span className="text-teal-400"> ANALYTICS</span>
+                  RODRICKS<span className="text-primary"> ANALYTICS</span>
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                   Statistics · Research · Data Analysis
@@ -31,21 +31,21 @@ export function Footer() {
                 href="https://wa.me/254794627947"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted border border-border/50 text-muted-foreground hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted border border-border/50 text-muted-foreground hover:bg-primary hover:border-primary hover:text-white transition-all"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon />
               </a>
               <a
                 href="mailto:otienorodricks8@gmail.com"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted border border-border/50 text-muted-foreground hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted border border-border/50 text-muted-foreground hover:bg-primary hover:border-primary hover:text-white transition-all"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4" />
               </a>
               <a
                 href="tel:+254794627947"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted border border-border/50 text-muted-foreground hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted border border-border/50 text-muted-foreground hover:bg-primary hover:border-primary hover:text-white transition-all"
                 aria-label="Phone"
               >
                 <Phone className="h-4 w-4" />
@@ -64,7 +64,7 @@ export function Footer() {
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-muted-foreground hover:text-amber-400 transition-colors inline-flex items-center gap-1 group">
+                  <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
                     {link.label}
                     <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
@@ -78,7 +78,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {["Statistical Analysis", "Research Consultancy", "Financial Analysis", "Survey Analysis", "Monitoring & Evaluation Support"].map((s) => (
                 <li key={s}>
-                  <a href="#services" className="text-sm text-muted-foreground hover:text-amber-400 transition-colors inline-flex items-center gap-1 group">
+                  <a href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
                     {s}
                     <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
@@ -90,16 +90,16 @@ export function Footer() {
           <div>
             <h4 className="font-display font-bold text-foreground mb-4 text-sm">Contact</h4>
             <address className="not-italic space-y-3 text-sm">
-              <a href="tel:+254794627947" className="flex items-center gap-2.5 text-muted-foreground hover:text-amber-400 transition-colors">
-                <Phone className="h-4 w-4 text-amber-500 shrink-0" />
+              <a href="tel:+254794627947" className="flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors">
+                <Phone className="h-4 w-4 text-primary shrink-0" />
                 +254 794 627 947
               </a>
-              <a href="tel:+254773625138" className="flex items-center gap-2.5 text-muted-foreground hover:text-amber-400 transition-colors">
-                <Phone className="h-4 w-4 text-amber-500 shrink-0" />
+              <a href="tel:+254773625138" className="flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors">
+                <Phone className="h-4 w-4 text-primary shrink-0" />
                 +254 773 625 138
               </a>
-              <a href="mailto:otienorodricks8@gmail.com" className="flex items-center gap-2.5 text-muted-foreground hover:text-amber-400 transition-colors">
-                <Mail className="h-4 w-4 text-amber-500 shrink-0" />
+              <a href="mailto:otienorodricks8@gmail.com" className="flex items-center gap-2.5 text-muted-foreground hover:text-primary transition-colors">
+                <Mail className="h-4 w-4 text-primary shrink-0" />
                 otienorodricks8@gmail.com
               </a>
               <a href="https://wa.me/254794627947?text=Hello%20Rodricks%20Otieno!" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-muted-foreground hover:text-green-400 transition-colors">

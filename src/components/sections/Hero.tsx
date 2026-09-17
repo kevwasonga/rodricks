@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle, TrendingUp } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 const stats = [
   { label: "Projects", value: 50, suffix: "+" },
@@ -45,7 +45,7 @@ export function Hero() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      ctx.fillStyle = "rgba(212,148,43,0.03)"
+      ctx.fillStyle = "rgba(200,169,110,0.03)"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       return
     }
@@ -68,7 +68,7 @@ export function Hero() {
       vy = 0
       r = 0
       pulse = 0
-      type = "amber"
+      type = "gold"
       constructor() {
         this.reset()
       }
@@ -79,7 +79,7 @@ export function Hero() {
         this.vy = (Math.random() - 0.5) * 0.35
         this.r = 1.5 + Math.random() * 2
         this.pulse = Math.random() * Math.PI * 2
-        this.type = Math.random() > 0.7 ? "teal" : "amber"
+        this.type = Math.random() > 0.7 ? "gold-light" : "gold"
       }
       update() {
         this.x += this.vx
@@ -94,7 +94,7 @@ export function Hero() {
         const pr = this.r + Math.sin(this.pulse) * 0.6
         ctx!.beginPath()
         ctx!.arc(this.x, this.y, pr, 0, Math.PI * 2)
-        ctx!.fillStyle = this.type === "teal" ? "rgba(13,155,155,0.7)" : "rgba(212,148,43,0.7)"
+        ctx!.fillStyle = this.type === "gold-light" ? "rgba(226,201,138,0.7)" : "rgba(200,169,110,0.7)"
         ctx!.fill()
       }
     }
@@ -123,7 +123,7 @@ export function Hero() {
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(212,148,43,${alpha})`
+            ctx.strokeStyle = `rgba(200,169,110,${alpha})`
             ctx.lineWidth = 0.8
             ctx.stroke()
           }
@@ -133,7 +133,7 @@ export function Hero() {
         ctx.beginPath()
         ctx.moveTo(0, y)
         ctx.lineTo(W, y)
-        ctx.strokeStyle = "rgba(212,148,43,0.03)"
+        ctx.strokeStyle = "rgba(200,169,110,0.03)"
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -141,7 +141,7 @@ export function Hero() {
         ctx.beginPath()
         ctx.moveTo(x, 0)
         ctx.lineTo(x, H)
-        ctx.strokeStyle = "rgba(212,148,43,0.03)"
+        ctx.strokeStyle = "rgba(200,169,110,0.03)"
         ctx.lineWidth = 1
         ctx.stroke()
       }
@@ -189,14 +189,14 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen bg-background overflow-hidden flex flex-col" aria-labelledby="hero-heading">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-45 pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(212,148,43,0.07)_0%,transparent_60%),radial-gradient(ellipse_60%_80%_at_80%_50%,rgba(13,155,155,0.05)_0%,transparent_60%),linear-gradient(180deg,transparent_50%,hsl(var(--background))_100%)] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(200,169,110,0.07)_0%,transparent_60%),radial-gradient(ellipse_60%_80%_at_80%_50%,rgba(200,169,110,0.04)_0%,transparent_60%),linear-gradient(180deg,transparent_50%,hsl(var(--background))_100%)] pointer-events-none" aria-hidden="true" />
 
       {floatingLabels.map((label, i) => (
         <motion.div
           key={i}
           className={cn(
-            "absolute hidden lg:block font-mono text-xs tracking-wide text-teal-400/25 pointer-events-none",
-            "px-2 py-1 border border-teal-500/20 rounded bg-teal-500/5"
+            "absolute hidden lg:block font-mono text-xs tracking-wide text-primary pointer-events-none",
+            "px-2 py-1 border border-primary rounded bg-primary"
           )}
           style={{ top: label.top, left: label.left, right: label.right, bottom: label.bottom } as React.CSSProperties}
           animate={{ y: [-8, 0, -8] }}
@@ -217,11 +217,11 @@ export function Hero() {
                 transition={{ duration: 0.6 }}
               >
                 <motion.span
-                  className="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_8px_rgb(13,155,155)] shrink-0"
+                  className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgb(13,155,155)] shrink-0"
                   animate={{ opacity: [1, 0.4, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <span className="font-mono text-xs uppercase tracking-widest text-teal-400">Rodricks Analytics</span>
+                <span className="font-mono text-xs uppercase tracking-widest text-primary">Rodricks Analytics</span>
                 <span className="hidden sm:block h-px bg-border/50 max-w-[80px] flex-1" />
               </motion.div>
 
@@ -295,10 +295,10 @@ export function Hero() {
                 {stats.map((stat, i) => (
                   <div key={stat.label} className="flex flex-1 flex-col items-center gap-1 px-3 py-4 border-r border-border/40 last:border-r-0 sm:border-b-0 border-b even:border-r-0 sm:even:border-r sm:border-r">
                     <div className="flex items-baseline gap-1">
-                      <span className="font-display font-extrabold gradient-text text-xl sm:text-2xl">{stat.value}</span>
-                      <span className="font-semibold text-teal-400 text-sm">{stat.suffix}</span>
+                      <span className="font-mono font-bold text-primary text-xl sm:text-2xl" style={{ fontVariationSettings: "'wght' 700" }}>{stat.value}</span>
+                      <span className="font-mono font-semibold text-primary text-sm">{stat.suffix}</span>
                     </div>
-                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground text-center">{stat.label}</span>
+                    <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground text-center">{stat.label}</span>
                     {i < stats.length - 1 && <span className="hidden" />}
                   </div>
                 ))}
@@ -333,13 +333,13 @@ export function Hero() {
                           <span className="font-mono text-[11px] text-muted-foreground">{bar.name}</span>
                           <div className="h-1.5 sm:h-2 bg-muted rounded-full overflow-hidden">
                             <motion.div
-                              className={cn("h-full rounded-full", bar.positive ? "bg-gradient-to-r from-amber-500 to-amber-400" : "bg-gradient-to-r from-red-500 to-red-400")}
+                              className={cn("h-full rounded-full", bar.positive ? "bg-gradient-to-r from-primary to-primary" : "bg-gradient-to-r from-red-500 to-red-400")}
                               initial={{ width: 0 }}
                               animate={{ width: `${bar.value}%` }}
                               transition={{ duration: 1.4, delay: 0.5 + i * 0.1 }}
                             />
                           </div>
-                          <span className={cn("font-mono text-xs text-right", bar.positive ? "text-teal-400" : "text-red-400")}>{bar.label}</span>
+                          <span className={cn("font-mono text-xs text-right", bar.positive ? "text-primary" : "text-red-400")}>{bar.label}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -348,7 +348,7 @@ export function Hero() {
                   <div className="grid grid-cols-3 border border-border/50 rounded-lg overflow-hidden">
                     {metrics.map((metric) => (
                       <div key={metric.label} className="p-3 sm:p-4 text-center border-r border-border/50 last:border-r-0">
-                        <div className="font-mono text-sm sm:text-lg font-bold text-teal-400">{metric.value}</div>
+                        <div className="font-mono text-sm sm:text-lg font-bold text-primary">{metric.value}</div>
                         <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-muted-foreground mt-1">{metric.label}</div>
                       </div>
                     ))}
@@ -357,22 +357,22 @@ export function Hero() {
                   <div className="bg-muted border border-border/50 rounded-lg p-3 sm:p-4 font-mono text-[11px] sm:text-xs leading-relaxed text-muted-foreground overflow-x-auto">
                     <span className="text-zinc-500"># Logistic Regression — R</span>
                     <br />
-                    <span className="text-teal-400">glm</span>(<span className="text-emerald-400">attendance</span> ~ <span className="text-emerald-400">education</span> +<br />
+                    <span className="text-primary">glm</span>(<span className="text-emerald-400">attendance</span> ~ <span className="text-emerald-400">education</span> +<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-emerald-400">income</span> + <span className="text-emerald-400">location</span>,<br />
-                    &nbsp;&nbsp;&nbsp;data = <span className="text-amber-400">student_data</span>,<br />
-                    &nbsp;&nbsp;&nbsp;family = <span className="text-amber-400">binomial</span>)<br />
-                    <span className="text-teal-400 animate-pulse">█</span>
+                    &nbsp;&nbsp;&nbsp;data = <span className="text-primary">student_data</span>,<br />
+                    &nbsp;&nbsp;&nbsp;family = <span className="text-primary">binomial</span>)<br />
+                    <span className="text-primary animate-pulse">█</span>
                   </div>
                 </div>
 
                 <div className="absolute -top-2 -left-2 sm:top-8 sm:-left-4 hidden lg:flex animate-float" style={{ animationDelay: "0s" }}>
                   <div className="bg-card border border-border/50 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground flex items-center gap-1.5 shadow-lg whitespace-nowrap">
-                    <CheckCircle className="h-3.5 w-3.5 text-green-500" /> Significant
+                    <span className="material-symbols-outlined text-[16px] text-green-500" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Significant
                   </div>
                 </div>
                 <div className="absolute -bottom-2 -right-2 sm:bottom-10 sm:-right-4 hidden lg:flex animate-float" style={{ animationDelay: "1s" }}>
                   <div className="bg-card border border-border/50 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground flex items-center gap-1.5 shadow-lg whitespace-nowrap">
-                    <TrendingUp className="h-3.5 w-3.5 text-teal-400" /> +47% Accuracy
+                    <span className="material-symbols-outlined text-[16px] text-primary">trending_up</span> +47% Accuracy
                   </div>
                 </div>
               </div>
@@ -384,7 +384,7 @@ export function Hero() {
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 pointer-events-none">
         <span className="font-mono text-[10px] tracking-[2px] uppercase text-muted-foreground/60">Scroll to explore</span>
         <div className="w-6 h-9 rounded-full border border-border/40 flex items-start justify-center p-1">
-          <motion.div className="w-1 h-2 bg-amber-500 rounded-full" animate={{ y: [0, 12, 0] }} transition={{ duration: 1.6, repeat: Infinity }} />
+          <motion.div className="w-1 h-2 bg-primary rounded-full" animate={{ y: [0, 12, 0] }} transition={{ duration: 1.6, repeat: Infinity }} />
         </div>
       </div>
     </section>

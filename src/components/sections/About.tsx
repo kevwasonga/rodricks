@@ -45,13 +45,13 @@ export function About() {
                 <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Nairobi, Kenya</span>
                 <div className="flex flex-wrap justify-center gap-2 mt-6">
                   {tools.map((tool) => (
-                    <span key={tool} className="font-mono text-[11px] tracking-wide px-2.5 py-1 border border-border/40 rounded text-teal-400 bg-teal-500/5">
+                    <span key={tool} className="font-mono text-[11px] tracking-wide px-2.5 py-1 border border-border/40 rounded text-primary bg-primary">
                       {tool}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-amber-500 to-teal-400 opacity-40" />
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-primary to-primary opacity-40" />
             </div>
           </motion.div>
 
@@ -100,7 +100,7 @@ export function About() {
             >
               {pillars.map((pillar) => (
                 <div key={pillar.title} className="card-base p-4 flex items-start gap-3 hover:border-primary/20 transition-colors">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/15 flex items-center justify-center text-amber-500">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary border border-primary flex items-center justify-center text-primary">
                     <pillar.icon className="h-4 w-4" aria-hidden="true" />
                   </div>
                   <div>
