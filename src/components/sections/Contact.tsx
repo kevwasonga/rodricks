@@ -10,6 +10,18 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
+const SERVICES = [
+  { id: "statistical-analysis", label: "Statistical Analysis" },
+  { id: "research-consultancy", label: "Research Consultancy" },
+  { id: "financial-policy-analysis", label: "Financial & Policy Analysis" },
+  { id: "business-applied-research", label: "Business & Applied Research" },
+  { id: "academic-assistance", label: "Academic Assistance" },
+  { id: "corporate-services", label: "Corporate Services" },
+  { id: "other", label: "Other / Not Sure" },
+]
+
+const WA_NUMBER = "254794627947"
+
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email required"),
@@ -27,7 +39,6 @@ export function Contact() {
     register,
     handleSubmit,
     control,
-    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -36,15 +47,25 @@ export function Contact() {
 
   const onSubmit = handleSubmit(async (data) => {
     if (data.website) return
-    // TODO: replace with fetch('/api/contact', { method:'POST', body: JSON.stringify(data) })
-    await new Promise((r) => setTimeout(r, 600))
+    const service = SERVICES.find((s) => s.id === data.service)
+    const lines = [
+      "Hello Rodricks Analytics! New inquiry from your website:",
+      `Name: ${data.name}`,
+      `Email: ${data.email}`,
+      data.phone ? `Phone: ${data.phone}` : null,
+      `Service: ${service ? service.label : data.service}`,
+      "",
+      data.message,
+    ].filter((l): l is string => Boolean(l))
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer")
     setSent(true)
-    reset()
-    setTimeout(() => setSent(false), 3500)
+    setTimeout(() => setSent(false), 4000)
   })
 
   return (
-    <section id="contact" className="section bg-muted/20" aria-labelledby="contact-heading">
+    <section id="contact" className="section relative bg-muted/20" aria-labelledby="contact-heading">
+      <div className="section-hairline top-0" aria-hidden="true" />
+      <div className="section-glow" aria-hidden="true" />
       <div className="container-custom">
         <motion.div
           className="section-header"
@@ -174,13 +195,9 @@ export function Contact() {
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="statistical-analysis">Statistical Analysis</SelectItem>
-                          <SelectItem value="research-consultancy">Research Consultancy</SelectItem>
-                          <SelectItem value="financial-policy-analysis">Financial & Policy Analysis</SelectItem>
-                          <SelectItem value="business-applied-research">Business & Applied Research</SelectItem>
-                          <SelectItem value="academic-assistance">Academic Assistance</SelectItem>
-                          <SelectItem value="corporate-services">Corporate Services</SelectItem>
-                          <SelectItem value="other">Other / Not Sure</SelectItem>
+                          {SERVICES.map((s) => (
+                            <SelectItem key={s.id} value={s.id}>{s.label}</SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     )}
@@ -196,9 +213,9 @@ export function Contact() {
               </div>
 
               <Button type="submit" size="lg" className="w-full gap-2 font-semibold h-11" disabled={isSubmitting || sent}>
-                {sent ? <>✓ Message Sent!</> : isSubmitting ? <>Sending…</> : <>Send Message <span className="material-symbols-outlined" style={{ fontSize: 20 }} aria-hidden="true">send</span></>}
+                {sent ? <>Opening WhatsApp…</> : isSubmitting ? <>Preparing…</> : <>Send via WhatsApp <span className="material-symbols-outlined" style={{ fontSize: 20 }} aria-hidden="true">send</span></>}
               </Button>
-              {sent && <p role="status" className="text-center text-sm text-green-400 font-medium">Thanks — we&apos;ll respond promptly.</p>}
+              {sent && <p role="status" className="text-center text-sm text-green-400 font-medium">WhatsApp opened — just press send there and it&apos;s on its way.</p>}
             </form>
           </motion.div>
         </div>

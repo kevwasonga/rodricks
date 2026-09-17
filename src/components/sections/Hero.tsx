@@ -236,26 +236,18 @@ export function Hero() {
                 <span className="hidden sm:block h-px bg-border/50 max-w-[80px] flex-1" />
               </motion.div>
 
-              <motion.h1
+<motion.h1
                 id="hero-heading"
-                className="font-display font-extrabold tracking-tight"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", lineHeight: 1.0 }}
+                className="font-display font-black tracking-tight"
+                style={{ fontSize: "clamp(4.5rem, 14vw, 12rem)", lineHeight: 0.92 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
               >
-                <span className="block text-foreground">Transform</span>
-                <span className="block" style={{ fontSize: "clamp(3.2rem, 7vw, 6rem)" }}>
-                  <span className="inline-flex items-baseline">
-                    <span className="font-display font-black gradient-text" style={{ fontSize: "clamp(3.5rem, 8vw, 7rem)", lineHeight: 0.9 }}>
-                      D
-                    </span>
-                    <span className="font-display font-light text-muted-foreground tracking-[0.15em]" style={{ fontSize: "clamp(2.2rem, 5vw, 4.2rem)" }}>
-                      ATA
-                    </span>
-                  </span>
+                <span className="block gradient-text">
+                  DATA
                 </span>
-                <span className="block text-foreground">
+                <span className="block text-foreground" style={{ fontSize: "clamp(2rem, 6vw, 4.4rem)", fontWeight: 700, letterSpacing: "-0.01em" }}>
                   Into <span className="gradient-text">Intelligence</span>
                 </span>
               </motion.h1>
@@ -298,19 +290,18 @@ export function Hero() {
               </motion.div>
 
               <motion.div
-                className="grid grid-cols-2 sm:flex border border-border/50 rounded-xl overflow-hidden bg-muted/30"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border/40 border border-border/50 rounded-xl overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                {stats.map((stat, i) => (
-                  <div key={stat.label} className="flex flex-1 flex-col items-center gap-1 px-3 py-4 border-r border-border/40 last:border-r-0 sm:border-b-0 border-b even:border-r-0 sm:even:border-r sm:border-r">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="flex flex-col items-center gap-1 px-3 py-4 bg-muted/30">
                     <div className="flex items-baseline gap-1">
                       <span className="font-mono font-bold text-primary text-xl sm:text-2xl" style={{ fontVariationSettings: "'wght' 700" }}>{stat.value}</span>
                       <span className="font-mono font-semibold text-teal-400 text-sm">{stat.suffix}</span>
                     </div>
                     <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground text-center">{stat.label}</span>
-                    {i < stats.length - 1 && <span className="hidden" />}
                   </div>
                 ))}
               </motion.div>

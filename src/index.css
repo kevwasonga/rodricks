@@ -26,6 +26,7 @@
     --input: 38 72% 50% / 0.15;
     --ring: 38 72% 50%;
     --radius: 0.75rem;
+    --radius-card: 1.25rem;
     --teal: 179 52% 33%;
     --teal-light: 179 60% 40%;
     /* Serif + sans paired type system (Fraunces / Inter / JetBrains Mono) */
@@ -167,12 +168,27 @@
   }
   .sh-rule {
     @apply w-12 h-[3px] rounded mx-auto mt-6 mb-0;
-    background: hsl(var(--primary));
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--teal-light)));
+  }
+  /* Section rhythm — hairline separator + faint top glow on every section */
+  .section-hairline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.35) 18%, hsl(var(--teal) / 0.25) 50%, hsl(var(--primary) / 0.35) 82%, transparent);
+    pointer-events: none;
+  }
+  .section-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70% 38% at 50% 0%, hsl(var(--primary) / 0.05) 0%, transparent 70%);
   }
   .card-base {
     @apply bg-card border rounded-xl transition-all duration-300;
     border-color: hsl(var(--primary) / 0.1);
-    border-radius: 20px;
+    border-radius: var(--radius-card);
   }
   .card-hover {
     @apply hover:shadow-[0_6px_28px_rgba(0,0,0,0.55)] hover:-translate-y-1;
@@ -319,6 +335,16 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  /* Film-grain overlay for premium depth (rendered once, very subtle) */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
   }
 }
 

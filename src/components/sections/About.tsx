@@ -12,7 +12,9 @@ const tools = ["R", "SPSS", "STATA", "Advanced Excel", "Nvivo"]
 
 export function About() {
   return (
-    <section id="about" className="section bg-muted/20" aria-labelledby="about-heading">
+    <section id="about" className="section relative bg-muted/20" aria-labelledby="about-heading">
+      <div className="section-hairline top-0" aria-hidden="true" />
+      <div className="section-glow" aria-hidden="true" />
       <div className="container-custom">
         <div className="grid lg:grid-cols-[420px_1fr] gap-10 lg:gap-16 items-center">
           <motion.div
@@ -100,7 +102,7 @@ export function About() {
             >
               {pillars.map((pillar) => (
                 <div key={pillar.title} className="card-base p-4 flex items-start gap-3 hover:border-primary/20 transition-colors">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary border border-primary flex items-center justify-center text-primary">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-primary-foreground shadow-[0_0_14px_hsl(var(--primary)/0.25)]">
                     <pillar.icon className="h-4 w-4" aria-hidden="true" />
                   </div>
                   <div>

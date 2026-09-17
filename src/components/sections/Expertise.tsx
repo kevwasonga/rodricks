@@ -69,7 +69,10 @@ const whys = [
 
 export function Expertise() {
   return (
-    <section id="expertise" className="section bg-background" aria-labelledby="expertise-heading">
+    <section id="expertise" className="section relative bg-background" aria-labelledby="expertise-heading">
+      <div className="section-hairline top-0" aria-hidden="true" />
+      <div className="section-hairline bottom-0" aria-hidden="true" />
+      <div className="section-glow" aria-hidden="true" />
       <div className="container-custom">
         <motion.div
           className="section-header"
@@ -130,9 +133,12 @@ export function Expertise() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="card-base p-5 sm:p-6"
+              className="card-base p-5 sm:p-6 group hover:-translate-y-1 hover:shadow-[0_10px_32px_rgba(0,0,0,0.35)] hover:border-primary/25 transition-all duration-300"
             >
-              <div className="font-mono text-xs tracking-widest text-teal-400 mb-3">{w.num}</div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-display font-black text-3xl gradient-text leading-none transition-transform duration-300 group-hover:scale-110 origin-left">{w.num}</span>
+                <span className="h-px w-8 bg-gradient-to-r from-primary/0 to-primary/40 transition-all duration-300 group-hover:w-12" aria-hidden="true" />
+              </div>
               <h5 className="font-display font-bold text-[15px] mb-2">{w.title}</h5>
               <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
             </motion.div>

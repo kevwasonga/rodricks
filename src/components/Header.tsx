@@ -80,7 +80,7 @@ export function Header() {
             height="44"
             loading="eager"
             decoding="async"
-            className="h-11 w-11 object-cover rounded-full shadow-[0_0_0_2px_hsl(var(--primary)/0.28),0_0_14px_hsl(var(--primary)/0.22)] shrink-0 transition-transform duration-300 group-hover:scale-[2]"
+            className="h-11 w-11 object-cover rounded-full shadow-[0_0_0_2px_hsl(var(--primary)/0.28),0_0_14px_hsl(var(--primary)/0.22)] shrink-0 transition-all duration-300 group-hover:scale-[1.35] group-hover:shadow-[0_0_0_3px_hsl(var(--primary)/0.5),0_0_24px_hsl(var(--primary)/0.45)]"
           />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display font-bold text-[0.95rem] tracking-[0.03em] text-white">RODRICKS ANALYTICS</span>

@@ -14,6 +14,7 @@ export default function App() {
   return (
     <>
       <a href="#main" className="sr-only">Skip to content</a>
+      <div className="grain" aria-hidden="true" />
       <Preloader />
       <Header />
       <main id="main">

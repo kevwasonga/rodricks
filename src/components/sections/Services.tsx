@@ -102,6 +102,9 @@ export function Services() {
             >
               <Card className={cn("relative overflow-hidden h-full flex flex-col group hover:-translate-y-1.5 transition-all duration-300", service.featured && "border-primary/30 bg-gradient-to-br from-amber-500/[0.07] via-card to-teal-500/[0.04]")}>
                 {service.featured && (
+                  <div className="pointer-events-none absolute -top-20 -right-16 h-44 w-44 rounded-full bg-[radial-gradient(circle,rgba(212,148,43,0.28),transparent_70%)] blur-2xl" aria-hidden="true" />
+                )}
+                {service.featured && (
                   <div className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-widest text-teal-400 px-2.5 py-1 border border-teal-500/25 rounded-full bg-teal-500/5">Most Requested</div>
                 )}
                 <div className="absolute top-5 left-5 font-display font-black text-5xl text-amber-500/[0.06] select-none">{service.num}</div>

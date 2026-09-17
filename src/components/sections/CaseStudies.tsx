@@ -95,7 +95,9 @@ const cases = [
 
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="section bg-muted/20" aria-labelledby="cases-heading">
+    <section id="case-studies" className="section relative bg-muted/20" aria-labelledby="cases-heading">
+      <div className="section-hairline top-0" aria-hidden="true" />
+      <div className="section-glow" aria-hidden="true" />
       <div className="container-custom">
         <motion.div
           className="section-header"
