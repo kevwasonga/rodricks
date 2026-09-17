@@ -65,7 +65,7 @@ export function Footer() {
           <div>
             <a href="#home" className="flex items-center gap-3 mb-5 group" aria-label="Rodricks Analytics — back to top">
               <img
-                src="/logo-512-circle.png"
+                src="/images/brand-logo-circle-512.png"
                 alt="Rodricks Analytics Logo"
                 width="48"
                 height="48"

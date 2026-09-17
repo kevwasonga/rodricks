@@ -62,6 +62,16 @@ export function Services() {
       className="section relative bg-[hsl(225_15%_9%)] border-y border-primary/10"
       aria-labelledby="services-heading"
     >
+      <img
+        src="/images/services-bg.webp"
+        alt=""
+        width="1376"
+        height="768"
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.10] pointer-events-none select-none"
+        aria-hidden="true"
+      />
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(212,148,43,0.05)_0%,transparent_70%)]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />

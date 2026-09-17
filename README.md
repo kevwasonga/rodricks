@@ -29,8 +29,12 @@ Live sections: Hero (animated data network) · About · Services · Case Studies
 .
 ├── index.html                 # meta, fonts, title (Syne/Space Grotesk/Space Mono)
 ├── public/
-│   ├── rodrologo.png          # logo (copied from Flask static, not the entire static folder)
-│   ├── rodrologo.jpeg
+│   ├── images/                # all site images (Hero/Services backgrounds + logo variants)
+│   │   ├── brand-logo.png           # 72px mark (favicon / OG)
+│   │   ├── brand-logo-512.png
+│   │   ├── brand-logo-circle-512.png
+│   │   ├── hero-bg.webp
+│   │   └── services-bg.webp
 │   └── favicon.svg
 ├── src/
 │   ├── main.tsx
@@ -115,7 +119,7 @@ Tailwind maps them via `fontFamily.display` (serif) | `body` (sans) | `mono`.
 | `templates/base.html` + `templates/index.html` | `src/App.tsx` + `src/components/*` |
 | `static/css/style.css` | `src/index.css` + `tailwind.config.js` |
 | `static/js/main.js` (canvas, reveal, counters, smooth scroll) | `framer-motion` + hooks in `Hero.tsx`, `Header.tsx`, etc. |
-| `static/rodrologo.png` | `public/rodrologo.png` (only needed asset) |
+| `static/rodrologo.png` | `public/images/brand-logo.png` (only needed asset) |
 | `app.py` `/send_message` | Client-side form with success toast (ready to wire to API) |
 
 ## 🌐 Deployment (Vercel)

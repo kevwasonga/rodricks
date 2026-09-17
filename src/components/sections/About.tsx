@@ -27,7 +27,7 @@ export function About() {
               <div className="relative z-10 p-6 sm:p-8 text-center w-full">
                 <div className="mb-6 flex justify-center">
                   <img
-                    src="/logo-512-circle.png"
+                    src="/images/brand-logo-circle-512.png"
                     alt="Rodricks Analytics Logo"
                     width="144"
                     height="144"

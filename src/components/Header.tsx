@@ -74,7 +74,7 @@ export function Header() {
       <nav className="container-custom flex items-center justify-between gap-6" aria-label="Main navigation">
         <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-3 shrink-0 group" aria-label="Rodricks Analytics — Home">
           <img
-            src="/logo-512-circle.png"
+            src="/images/brand-logo-circle-512.png"
             alt="Rodricks Analytics Logo"
             width="44"
             height="44"

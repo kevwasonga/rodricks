@@ -16,7 +16,7 @@ export function Preloader() {
   return (
     <div id="preloader" className={hidden ? "hidden" : ""} aria-hidden={hidden}>
       <div className="loader">
-        <img src="/logo-512-circle.png" alt="Rodricks Analytics" width="72" height="72" className="loader-img" />
+        <img src="/images/brand-logo-circle-512.png" alt="Rodricks Analytics" width="72" height="72" className="loader-img" />
         <div className="loader-text">Rodricks Analytics</div>
         <div className="loader-bar" />
       </div>
